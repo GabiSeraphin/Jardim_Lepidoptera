@@ -17880,7 +17880,41 @@
             event.target.classList.add('active');
         }
 
+           const playlist = [
+            "https://files.catbox.moe/tvpzkh.mp3",
+            "https://files.catbox.moe/09x8a9.mp3",
+            "https://files.catbox.moe/17ucu7.mp3",
+        ];
+        let currentTrack = 0;
+        const audio = document.getElementById('blogAudio');
 
+
+        function loadNextTrack() {
+            audio.src = playlist[currentTrack];
+            audio.play().catch(e => console.log("Autoplay bloqueado"));
+
+            audio.onended = function() {
+                currentTrack = (currentTrack + 1) % playlist.length;
+                loadNextTrack();
+            };
+        }
+
+        function toggleMusic() {
+            GS.settings.musicOn = true;
+
+
+            document.getElementById('musicToggle').classList.toggle('off', !GS.settings.musicOn);
+
+
+            if (GS.settings.musicOn) {
+                if (!audio.src) loadNextTrack(); // Inicia a primeira vez
+                audio.muted = false;
+                audio.play();
+            } else {
+                audio.muted = true;
+
+            }
+        }
 
 
 
