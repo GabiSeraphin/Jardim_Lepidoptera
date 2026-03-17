@@ -107,22 +107,17 @@
             line-height: 1.6;
         }
 
-        .button:hover {
-            cursor: url(https://i.postimg.cc/HxmDVR0W/Cursor-talk-4-png.png), auto;
-        }
-
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(200, 170, 100, 0.3);
-            border-radius: 3px;
+        ::-webkit-scrollbar {
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.2);
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
+        ::-webkit-scrollbar-thumb {
+            background: rgba(200, 170, 100, 0.3);
+            border-radius: 3px;
         }
 
         /* TOP BAR */
@@ -2011,32 +2006,6 @@
             margin: 8px 0 4px;
         }
 
-        .info-section-title b {
-            font-family: 'fleur';
-            letter-spacing: 0.5px;
-            font-size: 39px;
-            font-weight: 500 !important;
-            position: relative;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
-            padding-bottom: 10px;
-            width: 100%;
-            flex-grow: 1;
-            display: flex;
-            font-style: normal;
-        }
-
-        .info-section-title b:after {
-            content: "";
-            flex-grow: 1;
-            height: 2px;
-            background: var(--accent-sage-dark);
-            border-radius: 10px;
-            margin: auto 10px;
-        }
-
-
         .info-row {
             display: flex;
             justify-content: space-between;
@@ -2476,31 +2445,6 @@
             margin-bottom: 8px;
             padding-left: 8px;
             font-size: 13px;
-        }
-
-        .section-heading b {
-            font-family: 'fleur';
-            letter-spacing: 0.5px;
-            font-size: 39px;
-            font-weight: 500 !important;
-            position: relative;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
-            padding-bottom: 10px;
-            width: 100%;
-            flex-grow: 1;
-            display: flex;
-            font-style: normal;
-        }
-
-        .section-heading b:after {
-            content: "";
-            flex-grow: 1;
-            height: 2px;
-            background: var(--accent-sage-dark);
-            border-radius: 10px;
-            margin: auto 10px;
         }
 
         .btn {
@@ -6023,142 +5967,178 @@
         </div>
 
         <button class="title-lang" id="langBtn" onclick="toggleLanguage()" title="Change Language">PT</button>
-        <div class="title-version">v1.1</div>
+        <div class="title-version">v1.3</div>
         <div id="updates-widget">
-            <div class="bookmarks-row"> <!-- MAIN BUTTON -->
-                <div class="bookmark" id="main-bookmark" onclick="toggleBookmarks()" style="--bg: var(--cream); --border: var(--brown);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
-                        <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="var(--border)" stroke-width="2" />
-                    </svg> <span class="bookmark-icon"><svg viewBox="0 0 24 24" fill="
+            <div id="updates-widget">
+                <div class="bookmarks-row"> <!-- MAIN BUTTON -->
+                    <div class="bookmark" id="main-bookmark" onclick="toggleBookmarks()" style="--bg: var(--cream); --border: var(--brown);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
+                            <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="var(--border)" stroke-width="2" />
+                        </svg> <span class="bookmark-icon"><svg viewBox="0 0 24 24" fill="
 #6b5a4f" style="width: 20px; height: 20px;">
-                            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
-                        </svg></span> <span class="new-dot">✦</span> </div> <!-- HIDDEN BOOKMARKS -->
-                <div class="hidden-bookmarks" id="hidden-bookmarks"> <!-- 🦋 BUTTERFLY -->
-                    <div class="bookmark" data-content="1" onclick="showContent(1)" style="--bg: rgb(253, 248, 240); --border: rgb(212, 165, 165);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
-                            <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="var(--border)" stroke-width="2" />
-                        </svg> <span class="bookmark-icon"> <span style="position: relative; z-index: 1; color: rgb(253, 248, 240); margin-bottom: 4px; filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 1px 1px);"><svg viewBox="0 0 24 24" fill="rgb(212, 165, 165)" style="width: 20px; height: 20px;">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <ellipse cx="12" cy="5" rx="2.5" ry="4"></ellipse>
-                                    <ellipse cx="12" cy="19" rx="2.5" ry="4"></ellipse>
-                                    <ellipse cx="5" cy="12" rx="4" ry="2.5"></ellipse>
-                                    <ellipse cx="19" cy="12" rx="4" ry="2.5"></ellipse>
-                                    <ellipse cx="7" cy="7" rx="2.5" ry="4" transform="rotate(-45 7 7)"></ellipse>
-                                    <ellipse cx="17" cy="17" rx="2.5" ry="4" transform="rotate(-45 17 17)"></ellipse>
-                                    <ellipse cx="17" cy="7" rx="2.5" ry="4" transform="rotate(45 17 7)"></ellipse>
-                                    <ellipse cx="7" cy="17" rx="2.5" ry="4" transform="rotate(45 7 17)"></ellipse>
-                                </svg></span></span> </div> <!-- 🌸 FLOWER -->
-                    <div class="bookmark" data-content="1" onclick="showContent(2)" style="--bg: rgb(253, 248, 240); --border: rgb(212, 165, 165);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
-                            <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="rgb(156, 175, 136)" stroke-width="2" />
-                        </svg> <span class="bookmark-icon"><span class="absolute inset-0 flex items-center justify-center pb-3 transition-colors duration-300 text-stone-500" style="color: rgb(156, 175, 136);"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M12 2C10.5 4 9 6 9 8.5C9 10 10 11.5 12 12C14 11.5 15 10 15 8.5C15 6 13.5 4 12 2Z"></path>
-                                    <path d="M4 4C2 6 1 9 2 12C3 15 6 16 8 15C10 14 10 11 9 9C8 7 5 5 4 4Z" opacity="0.8"></path>
-                                    <path d="M20 4C22 6 23 9 22 12C21 15 18 16 16 15C14 14 14 11 15 9C16 7 19 5 20 4Z" opacity="0.8"></path>
-                                    <path d="M6 14C4 15 3 18 4 20C5 22 8 22 10 20C11 18 10 16 9 15C8 14 7 14 6 14Z" opacity="0.6"></path>
-                                    <path d="M18 14C20 15 21 18 20 20C19 22 16 22 14 20C13 18 14 16 15 15C16 14 17 14 18 14Z" opacity="0.6"></path>
-                                    <path d="M12 12V22" stroke="currentColor" stroke-width="1" fill="none"></path>
-                                </svg></span></span> <span class="new-dot">✦</span> </div>
+                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
+                            </svg></span> <span class="new-dot">✦</span> </div> <!-- HIDDEN BOOKMARKS -->
+                    <div class="hidden-bookmarks" id="hidden-bookmarks"> <!-- 🦋 BUTTERFLY -->
+                        <div class="bookmark" data-content="1" onclick="showContent(1)" style="--bg: rgb(253, 248, 240); --border: rgb(212, 165, 165);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
+                                <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="var(--border)" stroke-width="2" />
+                            </svg> <span class="bookmark-icon"> <span style="position: relative; z-index: 1; color: rgb(253, 248, 240); margin-bottom: 4px; filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 1px 1px);"><svg viewBox="0 0 24 24" fill="rgb(212, 165, 165)" style="width: 20px; height: 20px;">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <ellipse cx="12" cy="5" rx="2.5" ry="4"></ellipse>
+                                        <ellipse cx="12" cy="19" rx="2.5" ry="4"></ellipse>
+                                        <ellipse cx="5" cy="12" rx="4" ry="2.5"></ellipse>
+                                        <ellipse cx="19" cy="12" rx="4" ry="2.5"></ellipse>
+                                        <ellipse cx="7" cy="7" rx="2.5" ry="4" transform="rotate(-45 7 7)"></ellipse>
+                                        <ellipse cx="17" cy="17" rx="2.5" ry="4" transform="rotate(-45 17 17)"></ellipse>
+                                        <ellipse cx="17" cy="7" rx="2.5" ry="4" transform="rotate(45 17 7)"></ellipse>
+                                        <ellipse cx="7" cy="17" rx="2.5" ry="4" transform="rotate(45 7 17)"></ellipse>
+                                    </svg></span></span> </div> <!-- 🌸 FLOWER -->
+                        <div class="bookmark" data-content="1" onclick="showContent(2)" style="--bg: rgb(253, 248, 240); --border: rgb(212, 165, 165);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
+                                <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="rgb(156, 175, 136)" stroke-width="2" />
+                            </svg> <span class="bookmark-icon"><span class="absolute inset-0 flex items-center justify-center pb-3 transition-colors duration-300 text-stone-500" style="color: rgb(156, 175, 136);"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M12 2C10.5 4 9 6 9 8.5C9 10 10 11.5 12 12C14 11.5 15 10 15 8.5C15 6 13.5 4 12 2Z"></path>
+                                        <path d="M4 4C2 6 1 9 2 12C3 15 6 16 8 15C10 14 10 11 9 9C8 7 5 5 4 4Z" opacity="0.8"></path>
+                                        <path d="M20 4C22 6 23 9 22 12C21 15 18 16 16 15C14 14 14 11 15 9C16 7 19 5 20 4Z" opacity="0.8"></path>
+                                        <path d="M6 14C4 15 3 18 4 20C5 22 8 22 10 20C11 18 10 16 9 15C8 14 7 14 6 14Z" opacity="0.6"></path>
+                                        <path d="M18 14C20 15 21 18 20 20C19 22 16 22 14 20C13 18 14 16 15 15C16 14 17 14 18 14Z" opacity="0.6"></path>
+                                        <path d="M12 12V22" stroke="currentColor" stroke-width="1" fill="none"></path>
+                                    </svg></span></span> <span class="new-dot">✦</span> </div>
 
 
 
 
 
-                    <!-- 🌸 gene idk --->
-                    <div class="bookmark" data-content="1" onclick="showContent(3)" style="--bg: rgb(253, 248, 240); --border: rgb(184, 169, 201);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
-                            <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="var(--border)" stroke-width="2" />
-                        </svg> <span class="bookmark-icon"><span class="absolute inset-0 flex items-center justify-center pb-3 transition-colors duration-300 text-stone-500" style="color: rgb(184, 169, 201);"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                    <path d="M12 2C8 2 6 5 6 8C6 11 8 12 12 12C16 12 18 13 18 16C18 19 16 22 12 22"></path>
-                                    <path d="M12 2C16 2 18 5 18 8C18 11 16 12 12 12C8 12 6 13 6 16C6 19 8 22 12 22"></path>
-                                    <circle cx="7" cy="5" r="1.5"></circle>
-                                    <circle cx="17" cy="5" r="1.5"></circle>
-                                    <circle cx="7" cy="19" r="1.5"></circle>
-                                    <circle cx="17" cy="19" r="1.5"></circle>
-                                    <circle cx="6" cy="12" r="1"></circle>
-                                    <circle cx="18" cy="12" r="1"></circle>
-                                </svg></span></span> <span class="new-dot">✦</span> </div>
-                    <div class="update-panel" id="update-panel"> <!-- 🦋 UPDATE 1: New Species -->
-                        <div class="update-content" data-id="1">
-                            <div class="update-header">
-                                <h2 class="update-title"> <span style="position: relative; z-index: 1; color: rgb(253, 248, 240);"><svg viewBox="0 0 24 24" fill="rgb(212, 165, 165)" style="width: 24px; height: 24px;">
-                                            <circle cx="12" cy="12" r="3"></circle>
-                                            <ellipse cx="12" cy="5" rx="2.5" ry="4"></ellipse>
-                                            <ellipse cx="12" cy="19" rx="2.5" ry="4"></ellipse>
-                                            <ellipse cx="5" cy="12" rx="4" ry="2.5"></ellipse>
-                                            <ellipse cx="19" cy="12" rx="4" ry="2.5"></ellipse>
-                                            <ellipse cx="7" cy="7" rx="2.5" ry="4" transform="rotate(-45 7 7)"></ellipse>
-                                            <ellipse cx="17" cy="17" rx="2.5" ry="4" transform="rotate(-45 17 17)"></ellipse>
-                                            <ellipse cx="17" cy="7" rx="2.5" ry="4" transform="rotate(45 17 7)"></ellipse>
-                                            <ellipse cx="7" cy="17" rx="2.5" ry="4" transform="rotate(45 7 17)"></ellipse>
-                                        </svg></span> Primeria Versão </h2> <span class="update-date">✦13 mar</span>
-                            </div>
-                            <div class="update-body">
-                                <p>Primeira versão de lançamento do <b>Jardim Lepidoptera</b>! Ainda tem <u>muita coisa</u> que eu tenho que <u> resolver, concertar e adicionar</u>, mas essa é a função da primeira versão, não é?</p>
-                                <h3>✿ Lista de funcionalidades</h3>
-                                <p>Genetica funciona, passei uma boa dor de cabeça tentado resolver porque na ultima versao que eu timnha nao funcionava.</p>
-                                <ul>
-                                    <li> Ajustes a Mecanica de Procriaçao resoluçao de bugs <b> para maior realismo </b></li>
-                                    <li> Aproximadamente 5,37 trilhões de <u>borboletas únicas</u></li>
-                                    <li>Mecânica do Laboratório <i>tamagochi e personalidade</i></li>
-                                </ul>
-                                <div class="divider">✿ ----- ✿ —---- ✿ </div>
-                            </div>
-                        </div> <!-- 🌸 UPDATE 2: Spring Event -->
-                        <div class="update-content" data-id="2">
-                            <div class="update-header">
-                                <h2 class="update-title"> <span style="position: relative; z-index: 1; color: rgb(253, 248, 240);"><svg viewBox="0 0 24 24" fill="rgb(156, 175, 136)" class="w-5 h-5">
-                                            <path d="M12 2C10.5 4 9 6 9 8.5C9 10 10 11.5 12 12C14 11.5 15 10 15 8.5C15 6 13.5 4 12 2Z"></path>
-                                            <path d="M4 4C2 6 1 9 2 12C3 15 6 16 8 15C10 14 10 11 9 9C8 7 5 5 4 4Z" opacity="0.8"></path>
-                                            <path d="M20 4C22 6 23 9 22 12C21 15 18 16 16 15C14 14 14 11 15 9C16 7 19 5 20 4Z" opacity="0.8"></path>
-                                            <path d="M6 14C4 15 3 18 4 20C5 22 8 22 10 20C11 18 10 16 9 15C8 14 7 14 6 14Z" opacity="0.6"></path>
-                                            <path d="M18 14C20 15 21 18 20 20C19 22 16 22 14 20C13 18 14 16 15 15C16 14 17 14 18 14Z" opacity="0.6"></path>
-                                            <path d="M12 12V22" stroke="currentColor" stroke-width="1" fill="none">
-                                        </svg></span>1ª Atualização</h2> <span class="new-badge">NEW</span> <span class="update-date">✦16 mar</span>
-                            </div>
-                            <div class="update-body">
-                                <p>A <b>Primeira Actualização do jogo</b> chegou! 🎉</p>
-                                <h3>E com ela muitas melhorias</h3>
-                                <ul>
-                                    <li><b>Registo de atualizações</b> adicionado</li>
-                                    <li><u>Modo História</u> com escolhas e ilustrações para a personagem do jogador.</li>
-                                    <li><i>Musicas</i> Feito pessoalmente por mim, e inclui também um botão de silenciar.</li>
-                                    <li><i>Notificaçoes</i> melhorias esteticas e funcionais</li>
-                                </ul>
-                                <h4>Proximas Atualizaçoes (?)</h4>
-                                <ol>
-                                    <li>Easter Eggs <b>escondidos ao longo do jogo</b></li>
-                                    <li>Remake da <u>tela de título</u></li>
-                                </ol>
-                            </div>
-                        </div>
-                        <div class="update-content" data-id="3">
-                            <div class="update-header">
-                                <h2 class="update-title"> <span class="absolute inset-0 flex items-center justify-center pb-3 transition-colors duration-300 text-stone-500" style="color: rgb(184, 169, 201);"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                            <path d="M12 2C8 2 6 5 6 8C6 11 8 12 12 12C16 12 18 13 18 16C18 19 16 22 12 22"></path>
-                                            <path d="M12 2C16 2 18 5 18 8C18 11 16 12 12 12C8 12 6 13 6 16C6 19 8 22 12 22"></path>
-                                            <circle cx="7" cy="5" r="1.5"></circle>
-                                            <circle cx="17" cy="5" r="1.5"></circle>
-                                            <circle cx="7" cy="19" r="1.5"></circle>
-                                            <circle cx="17" cy="19" r="1.5"></circle>
-                                            <circle cx="6" cy="12" r="1"></circle>
-                                            <circle cx="18" cy="12" r="1"></circle>
-                                        </svg></span></span>Mini Concertos</h2> <span class="new-badge">NEW</span> <span class="update-date">✦17 mar</span>
-                            </div>
-                            <div class="update-body">
-                                <p>Só uma <b>mini Atualização </b> para arrumar algumas coisas e para que as coisas funcionem corretamente.</p>
-                                <h3>Incluindo</h3>
-                                <ul>
-                                    <li><b>Registo de atualizações</b> adicionado</li>
-                                    <li><u>Modo História</u> com escolhas e ilustrações para a personagem do jogador.</li>
-                                    <li><i>Resolvido Musicas</i> botao agora esta na pagina de titulo também.</li>
-                                    <li><b>Agradecimento</b>-<i>Cartas:</i> Creditos oficialmente termindados, todos os textos foram escritos e ajustados</li>
-                                </ul>
-                                <div class="highlight-box highlight-lavender">
-                                    🧪 eja as suas borboletas no laboratório <b>na aba de info</b> para ver se também corrigi a barra de deslocamento.
+                        <!-- 🌸 gene idk --->
+                        <div class="bookmark" data-content="1" onclick="showContent(3)" style="--bg: rgb(253, 248, 240); --border: rgb(184, 169, 201);"> <svg viewBox="0 0 40 48" class="bookmark-svg">
+                                <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="var(--border)" stroke-width="2" />
+                            </svg> <span class="bookmark-icon"><span class="absolute inset-0 flex items-center justify-center pb-3 transition-colors duration-300 text-stone-500" style="color: rgb(184, 169, 201);"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M12 2C8 2 6 5 6 8C6 11 8 12 12 12C16 12 18 13 18 16C18 19 16 22 12 22"></path>
+                                        <path d="M12 2C16 2 18 5 18 8C18 11 16 12 12 12C8 12 6 13 6 16C6 19 8 22 12 22"></path>
+                                        <circle cx="7" cy="5" r="1.5"></circle>
+                                        <circle cx="17" cy="5" r="1.5"></circle>
+                                        <circle cx="7" cy="19" r="1.5"></circle>
+                                        <circle cx="17" cy="19" r="1.5"></circle>
+                                        <circle cx="6" cy="12" r="1"></circle>
+                                        <circle cx="18" cy="12" r="1"></circle>
+                                    </svg></span></span> <span class="new-dot">✦</span> </div>
+                        <div class="update-panel" id="update-panel"> <!-- 🦋 UPDATE 1: New Species -->
+                            <div class="update-content" data-id="1">
+                                <div class="update-header">
+                                    <h2 class="update-title"> <span style="position: relative; z-index: 1; color: rgb(253, 248, 240);"><svg viewBox="0 0 24 24" fill="rgb(212, 165, 165)" style="width: 24px; height: 24px;">
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                                <ellipse cx="12" cy="5" rx="2.5" ry="4"></ellipse>
+                                                <ellipse cx="12" cy="19" rx="2.5" ry="4"></ellipse>
+                                                <ellipse cx="5" cy="12" rx="4" ry="2.5"></ellipse>
+                                                <ellipse cx="19" cy="12" rx="4" ry="2.5"></ellipse>
+                                                <ellipse cx="7" cy="7" rx="2.5" ry="4" transform="rotate(-45 7 7)"></ellipse>
+                                                <ellipse cx="17" cy="17" rx="2.5" ry="4" transform="rotate(-45 17 17)"></ellipse>
+                                                <ellipse cx="17" cy="7" rx="2.5" ry="4" transform="rotate(45 17 7)"></ellipse>
+                                                <ellipse cx="7" cy="17" rx="2.5" ry="4" transform="rotate(45 7 17)"></ellipse>
+                                            </svg></span> Primeria Versão </h2> <span class="update-date">✦13 mar</span>
                                 </div>
+                                <div class="update-body">
+                                    <p>Primeira versão de lançamento do <b>Jardim Lepidoptera</b>! Ainda tem <u>muita coisa</u> que eu tenho que <u> resolver, concertar e adicionar</u>, mas essa é a função da primeira versão, não é?</p>
+                                    <h3>✿ Lista de funcionalidades</h3>
+                                    <p>Genetica funciona, passei uma boa dor de cabeça tentado resolver porque na ultima versao que eu timnha nao funcionava.</p>
+                                    <ul>
+                                        <li> Ajustes a Mecanica de Procriaçao resoluçao de bugs <b> para maior realismo </b></li>
+                                        <li> Aproximadamente 5,37 trilhões de <u>borboletas únicas</u></li>
+                                        <li>Mecânica do Laboratório <i>tamagochi e personalidade</i></li>
+                                    </ul>
+                                    <div class="divider">✿ ----- ✿ —---- ✿ </div>
+                                </div>
+                            </div> <!-- 🌸 UPDATE 2: Spring Event -->
+                            <div class="update-content" data-id="2">
+                                <div class="update-header">
+                                    <h2 class="update-title"> <span style="position: relative; z-index: 1; color: rgb(253, 248, 240);"><svg viewBox="0 0 24 24" fill="rgb(156, 175, 136)" class="w-5 h-5">
+                                                <path d="M12 2C10.5 4 9 6 9 8.5C9 10 10 11.5 12 12C14 11.5 15 10 15 8.5C15 6 13.5 4 12 2Z"></path>
+                                                <path d="M4 4C2 6 1 9 2 12C3 15 6 16 8 15C10 14 10 11 9 9C8 7 5 5 4 4Z" opacity="0.8"></path>
+                                                <path d="M20 4C22 6 23 9 22 12C21 15 18 16 16 15C14 14 14 11 15 9C16 7 19 5 20 4Z" opacity="0.8"></path>
+                                                <path d="M6 14C4 15 3 18 4 20C5 22 8 22 10 20C11 18 10 16 9 15C8 14 7 14 6 14Z" opacity="0.6"></path>
+                                                <path d="M18 14C20 15 21 18 20 20C19 22 16 22 14 20C13 18 14 16 15 15C16 14 17 14 18 14Z" opacity="0.6"></path>
+                                                <path d="M12 12V22" stroke="currentColor" stroke-width="1" fill="none">
+                                            </svg></span>1ª Atualização</h2> <span class="new-badge">NEW</span> <span class="update-date">✦16 mar</span>
+                                </div>
+                                <div class="update-body">
+                                    <p>A <b>Primeira Actualização do jogo</b> chegou! 🎉</p>
+                                    <h3>E com ela muitas melhorias</h3>
+                                    <ul>
+                                        <li><b>Registo de atualizações</b> adicionado</li>
+                                        <li><u>Modo História</u> com escolhas e ilustrações para a personagem do jogador.</li>
+                                        <li><i>Musicas</i> Feito pessoalmente por mim, e inclui também um botão de silenciar.</li>
+                                        <li><i>Notificaçoes</i> melhorias esteticas e funcionais</li>
+                                    </ul>
+                                    <h4>Proximas Atualizaçoes (?)</h4>
+                                    <ol>
+                                        <li>Easter Eggs <b>escondidos ao longo do jogo</b></li>
+                                        <li>Remake da <u>tela de título</u></li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="update-content" data-id="4">
+                                <div class="update-header">
+                                    <h2 class="update-title"> <span class="absolute inset-0 flex items-center justify-center pb-3 transition-colors duration-300 text-stone-500" style="color: rgb(184, 169, 201);"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                                <path d="M12 2C8 2 6 5 6 8C6 11 8 12 12 12C16 12 18 13 18 16C18 19 16 22 12 22"></path>
+                                                <path d="M12 2C16 2 18 5 18 8C18 11 16 12 12 12C8 12 6 13 6 16C6 19 8 22 12 22"></path>
+                                                <circle cx="7" cy="5" r="1.5"></circle>
+                                                <circle cx="17" cy="5" r="1.5"></circle>
+                                                <circle cx="7" cy="19" r="1.5"></circle>
+                                                <circle cx="17" cy="19" r="1.5"></circle>
+                                                <circle cx="6" cy="12" r="1"></circle>
+                                                <circle cx="18" cy="12" r="1"></circle>
+                                            </svg></span></span>2x Concertos</h2> <span class="new-badge">NEW</span> <span class="update-date">✦17 mar</span>
+                                </div>
+                                <div class="update-body">
+                                    <p>Só uma <b>mini Atualização </b> para arrumar algumas coisasdepois da apresentaçao inicial para a turma muito obrigada por cada um de voces!</p>
+                                    <h3>Incluindo</h3>
+                                    <ul>
+                                        <li><u>procricar</u> problema de incesto na snedo possivel resolvido.</li>
+                                        <li><i>Resolvido nectar</i> problema da notificaçao de nectar nao ser suficiente e na aba de alimentar!</li>
+                                        <li><b>Aventuras</b>-<i>Cartas:</i> Concertei aogra podem ir para todos os biomas!!</li>
+                                    </ul>
+                                    <div class="highlight-box highlight-lavender">
+                                        versao atual v1.3
+                                    </div>
 
 
 
-                                <div class="divider">❀ — ❀ — ❀</div>
+                                    <div class="divider">❀ — ❀ — ❀</div>
 
 
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="update-content" data-id="3">
+                                <div class="update-header">
+                                    <h2 class="update-title"> <span class="absolute inset-0 flex items-center justify-center pb-3 transition-colors duration-300 text-stone-500" style="color: rgb(184, 169, 201);"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                                <path d="M12 2C8 2 6 5 6 8C6 11 8 12 12 12C16 12 18 13 18 16C18 19 16 22 12 22"></path>
+                                                <path d="M12 2C16 2 18 5 18 8C18 11 16 12 12 12C8 12 6 13 6 16C6 19 8 22 12 22"></path>
+                                                <circle cx="7" cy="5" r="1.5"></circle>
+                                                <circle cx="17" cy="5" r="1.5"></circle>
+                                                <circle cx="7" cy="19" r="1.5"></circle>
+                                                <circle cx="17" cy="19" r="1.5"></circle>
+                                                <circle cx="6" cy="12" r="1"></circle>
+                                                <circle cx="18" cy="12" r="1"></circle>
+                                            </svg></span></span>Mini Concertos</h2> <span class="new-badge">NEW</span> <span class="update-date">✦17 mar</span>
+                                </div>
+                                <div class="update-body">
+                                    <p>Só uma <b>mini Atualização </b> para arrumar algumas coisas e para que as coisas funcionem corretamente.</p>
+                                    <h3>Incluindo</h3>
+                                    <ul>
+                                        <li><b>Registo de atualizações</b> adicionado</li>
+                                        <li><u>Modo História</u> com escolhas e ilustrações para a personagem do jogador.</li>
+                                        <li><i>Resolvido Musicas</i> botao agora esta na pagina de titulo também.</li>
+                                        <li><b>Agradecimento</b>-<i>Cartas:</i> Creditos oficialmente termindados, todos os textos foram escritos e ajustados</li>
+                                    </ul>
+                                    <div class="highlight-box highlight-lavender">
+                                        🧪 eja as suas borboletas no laboratório <b>na aba de info</b> para ver se também corrigi a barra de deslocamento. v1.3. update: resolvi o resto dos bugs!
+                                    </div>
+
+
+
+                                    <div class="divider">❀ — ❀ — ❀</div>
+
+
+                                </div>
+                                </ol>
                             </div>
                         </div>
                     </div>
@@ -6222,12 +6202,12 @@
 
 
                             <div class="cr-heart">
-                                <img src="https://files.catbox.moe/s4ah6u.gif" alt="Saúde" width="20"> ♡ Sobre Mim ♡ <img src="https://files.catbox.moe/dcfvsd.gif" alt="Saúde" width="20"><br>
+                                ⠀ ♡ ♡<img src="https://files.catbox.moe/s4ah6u.gif" alt="Saúde" width="20"> <img src="https://files.catbox.moe/dcfvsd.gif" alt="Saúde" width="20"><br>
                                 Comecei a programar há 2 meses<br>
                                 Construí esse jogo inteiro em (+ ou -) duas semanas <br>
-                                <span style="opacity:0.7; font-size:11.2px;">(se não contar os dias em que eu nem toquei no código.)</span><br>
+                                <span style="opacity:0.7; font-size:11.2px;">(se não contarmos com os dias em que o meu cérebro não me deixava tocar no código.)</span><br>
                                 Sem experiência prévia. Sem ninguém para me dar a mão. <br>Apenas uma mente autodidata que não consegue parar. <br>
-                                Uma recusa obstinada em desistir de mim mesma <br> que nem eu mesma sabia que eu tinha
+                                Uma recusa obstinada em desistir de mim mesma <br> que neu eu mesma sabia que eu tinha
                             </div>
 
                             <br>
@@ -6257,9 +6237,9 @@
 
                                 quando nem eu tinha a certeza se merecia existir. <br>
 
-                                Por me dar espaço para criar <br>
+                                Por me dar espaço para criar —<br>
 
-                                não o espaço que dá a sensação de estar sozinha,<br>
+                                não o tipo de espaço que dá a sensação de estar sozinha,<br>
 
                                 mas o tipo que dá a sensação de confiança. <br><br>
 
@@ -6273,7 +6253,7 @@
 
                                 convencendo-se de que não é suficiente. <br><br>
 
-                                Tinhas razão, eu consigo.<br>
+                                Tinhas razão — eu consigo.<br>
 
                                 E levarei comigo essas palavras<br>
 
@@ -6285,13 +6265,12 @@
                             <div class="cr-thanks">
 
                                 Mesmo não sendo meu professor desta disciplina,<br>
-                                seria impossível não lhe agradecer <br>
+                                seria impossível não lhe agradecer —<br>
                                 porque é que algumas pessoas mudam a nossa vida<br>
 
                                 mesmo sem ser sua obrigação. <br><br>
 
-                                Toda a sua ajuda, o seu apoio, a sua disponibilidade
-                                <br>
+                                Toda a sua ajuda, o seu apoio, a sua disponibilidade —<br>
 
                                 tudo o que me deu a mim e à minha família<br>
                                 fez-me sentir mais incluída<br>
@@ -6312,7 +6291,7 @@
 
                                 Genética Mendeliana, Quadrados de Punnett,<br>
 
-                                E especialmente a <b>Maria Sibylla Merian</b>, que viu a maravilha da metamorfose <br>
+                                E especialmente a Maria Sibylla Merian, que viu a maravilha da metamorfose <br>
                                 muito antes de o mundo estar pronto para compreendê-la.<br>
 
                                 Você escreveu o código-fonte do universo; você fez a verdadeira magia primeiro.
@@ -6336,151 +6315,21 @@
                     </div>
 
                     <div class="cr-box">
-                        <div class="cr-section" style="margin-top:0; margin-bottom:12px;">
-
-                            <img src="https://i.postimg.cc/7Zz2Y2WJ/pencil.gif" alt="Saúde" width="20"> Carta da Desenvolvedora
-                            <span class="action-icon">
-
-                                <img src="https://64.media.tumblr.com/9fad6ba70b728a0262f6823a5e8a094a/f3eb0b90397f7bcd-a1/s75x75_c1/6e8187a16f6b7257be1b066f73767c0790aa83e8.gifv" alt="Saúde" width="20">
-                            </span>
-                        </div>
+                        <div class="cr-section" style="margin-top:0; margin-bottom:12px;"><img src="https://i.postimg.cc/7Zz2Y2WJ/pencil.gif" alt="Saúde" width="20"> A Note from the Dev <span class="action-icon"><img src="https://64.media.tumblr.com/9fad6ba70b728a0262f6823a5e8a094a/f3eb0b90397f7bcd-a1/s75x75_c1/6e8187a16f6b7257be1b066f73767c0790aa83e8.gifv" alt="Saúde" width="20"></span></div>
                         <div class="cr-personal">
-
-                            Comecei esta jornada há dois meses<br>
-
-                            sem saber o que era uma variável.<br>
-
-                            sem saber o que uma função fazia.<br>
-
-                            sem saber se alguém como eu<br>
-
-                            seria sequer permitido tentar.<br><br>
-
-                            Meu cérebro funciona de forma diferente.<br>
-
-                            Por muito tempo, carreguei isso como uma cicatriz ou Maldição —<br>
-
-                            algo para esconder, algo pelo qual me desculpar,<br>
-
-                            algo que me fazia sentir como se eu estivesse<br>
-                            observando o mundo através de uma janela<br>
-                            pela qual todos os outros podiam passar.<br><br>
-
-                            Acontece que pensar diferente<br>
-
-                            não é uma falha no código.<br>
-
-                            É o código.<br><br>
-
-                            ✦ Para Meus Pais ✦ br><br>
-
-                            Mãe,<br>
-                            você se sentou ao meu lado<br>
-
-                            nas noites quando eu falava sem parar sobre o codigo e coisas que eu tinha adicionado.<br>
-
-                            Você nem sempre entendia<br>
-
-                            o que eu estava construindo ou por que eu estava tao entusiasmada<br>
-
-                            por causa de uma linha de código às 2 da tarde,<br>
-
-                            mas você ficou mesmo assim.<br>
-
-                            Você sempre fica.<br>
-
-                            Essa é a coisa mais importante<br>
-
-                            que alguém já fez por mim.<br><br>
-
-                            Pai, <br> você estava em outro país<br>
-
-                            durante as semanas em que eu construí isso.<br>
-
-                            Um oceano entre nós,<br>
-
-                            um fuso horário entre nossas vozes.<br>
-
-                            Você não estava aqui —<br>
-
-                            mas, de alguma forma, você estava em todos os lugares.<br><br>
-
-                            Toda vez que eu quase desisti,<br>
-                            eu ouvia sua voz na minha cabeça<br>
-                            dizendo que eu era capaz<br>
-                            de coisas que eu nem sequer havia imaginado ainda.<br>
-
-                            Toda vez que eu duvidava de mim mesma,<br>
-                            eu me lembrava de como você nunca duvidou de mim —<br>
-
-                            nem uma vez. Nem mesmo a milhares de quilômetros de distância.
-
-                            Você me ajudou a construir este jogo sem nunca tocar no teclado.
-
-                            Você me ajudou a acreditar que eu conseguiria terminá-lo sem estar no mesmo cômodo.
-
-                            Você enviou sua fé através do oceano e ela sempre chegou,
-                            bem quando eu mais precisava.
-
-                            Não sei se você algum dia entenderá completamente o que este pequeno jogo de borboleta significa para mim.
-
-                            Mas preciso que você saiba:
-
-                            cada asa que desenhei,
-                            cada gene que codifiquei,
-                            cada pixel que se move nesta tela existe porque duas pessoas amaram uma criança estranha,
-                            quieta e pensativa, exatamente do jeito que ela precisava ser amada.
-
-                            Obrigada. Por tudo.<br>
-
-                            Por me amarem do jeito que eu sou,<br>
-
-                            mesmo quando eu não sou.<br><br>
-
-                            ─── ✦ ───<br><br>
-
-                            E se você é neurodivergente e está lendo isso —<br>
-
-                            se você é a criança sentada sozinha no almoço<br>
-
-                            com a cabeça cheia de mundos<br>
-
-                            que ninguém mais consegue ver ainda:<br><br>
-
-                            Seu hiperfoco não é um defeito.<br>
-
-                            Suas obsessões não são uma perda de tempo.<br>
-
-                            Seus pequenos projetos estranhos importam.<br>
-
-                            Seu cérebro estranho e belo<br>
-
-                            não está quebrado — ele está construindo algo<br>
-                            que o mundo ainda não sabe que precisa.<br><br>
-
-                            Dois meses atrás eu não sabia<br>
-                            o que era uma variável.<br>
-
-                            Hoje eu criei um mundo<br>
-                            onde as borboletas herdam genes<br>
-
-                            e os passam para seus filhos.<br><br>
-
-                            Você são mais capazes<br>
-                            do que a pior voz na sua cabeça<br>
-
-                            jamais deixará você acreditar.<br><br>
-
-                            Vá fazer algo bonito.<br>
-
-                            Eu acredito em você —<br>
-
-                            como alguém um dia acreditou em mim<br>
-
-                            do outro lado do mundo.
-
-                            <img src="https://64.media.tumblr.com/863229f09b0916fbe3aa8b8f4ced070c/1d7dff280dffe7e9-38/s75x75_c1/b1cac367032c17f48b9828af1c4e02cf44190c9b.gifv" alt="Saúde" width="20">
-
+                            I started this journey two months ago<br>
+                            not knowing what a variable was.<br><br>
+                            My brain works differently, and for<br>
+                            a long time I thought that meant<br>
+                            I couldn't make things like this.<br><br>
+                            Turns out, thinking differently<br>
+                            is kind of a superpower.<br><br>
+                            If you're neurodivergent and reading this:<br>
+                            your hyperfocus is not a flaw.<br>
+                            Your obsessions are not a waste of time.<br>
+                            Your weird little projects matter.<br><br>
+                            Go make something beautiful.<br>
+                            I believe in you. <img src="https://64.media.tumblr.com/863229f09b0916fbe3aa8b8f4ced070c/1d7dff280dffe7e9-38/s75x75_c1/b1cac367032c17f48b9828af1c4e02cf44190c9b.gifv" alt="Saúde" width="20">
                         </div>
                     </div>
 
@@ -16337,9 +16186,8 @@
 
             }
             sec.innerHTML = `
-<div class="info-section-title" style="margin-top:8px"><b> Detalhes</b></div>
-<div class="info-row"><span class="info-label">Nome:</span><span class="info-value">${bf.name}</span></div>
-       
+
+        <div class="info-section-title">${bf.name}</div>
 
         <div class="info-row"><span class="info-label">Sexo:</span><span class="info-value">${bf.gender==='macho'?'♂ macho':'♀ fêmea'}</span></div>
 
@@ -16351,8 +16199,8 @@
         <div class="info-row"><span <div class="info-label">Personalidade:</span><span class="personality-badge ${bf.personality}">${bf.personality}</span></div>
         ${bf.isInbred?`<div class="info-row"><span class="info-label" style="color:#c05050;">Consciência:</span><span class="info-value" style="color:#c05050;">${Math.round(bf.inbreedCoeff*100)}%</span></div>`:''}
         ${bf.region?`<div class="info-row"><span class="info-label">Origem:</span><span class="info-value">${bf.region}</span></div>`:''}
-        <div class="info-section-title" style="margin-top:8px"><b>🧬 Genética </b> </div>${ghtml}
-        <div <div class="info-section-title" style="margin-top:8px"><b>Treinamento<b></div>
+        <div class="info-section-title" style="margin-top:8px">🧬 Genética</div>${ghtml}
+        <div <div class="info-section-title" style="margin-top:8px">📊 Treinamento</div>
         <div class="info-row"><span class="info-label" style="font-weight: 800; font-size: 16px;">Agilidade:</span><span class="info-value">${bf.agility}</span></div>
         <div class="info-row"><span class="info-label"style="font-weight: 800; font-size: 16px;">Resistência:</span><span class="info-value">${bf.stamina}</span></div>
         <div class="info-row"><span class="info-label"style="font-weight:800; font-size: 16px;">Beleza:</span><span class="info-value">${bf.beauty}</span></div>
@@ -16593,7 +16441,7 @@
                 <div class="gene-row-a"><span class="gene-name">Personalidade</span><span class="genotype-display"><span class="personality-badge ${bf.personality}" style="font-size:0.7rem;">${bf.personality}</span></span></div>
                 <div class="gene-row-a"><span class="gene-name">Fertilidade</span><span class="genotype-display">${Math.round(bf.fertility*100)}%</span></div>
                 ${bf.region?`<div class="ene-row-a"><span class="gene-name">Região de Origem</span><span class="genotype-display">${bf.region}</span></div>`:''}
-               <b> <h4 class="section-heading" style="margin-top:10px;">Genética</h4></b>
+                <h4 class="section-heading" style="margin-top:10px;">🧬 Genótipo</h4>
                 ${ghtml}
         <div class="stats">
               <b>Habilidades</b> <div class="stats-icon">a</div>
@@ -16638,7 +16486,7 @@
             const bf = createButterfly({});
             GS.butterflies.push(bf);
             GS.starterCount++;
-            notify(`Nova Borboleta: ${bf.name} (${getPhenotype(bf.genetics).colorLabel}) ${bf.gender==='macho'?'♂':'♀'}`);
+            notify(`New: ${bf.name} (${getPhenotype(bf.genetics).colorLabel}) ${bf.gender==='macho'?'♂':'♀'}`);
             updateDisplays();
             renderCollection();
             renderVials();
@@ -16690,7 +16538,7 @@
             if (GS.breedSlot1 !== null && GS.breedSlot1 < GS.butterflies.length) {
                 const bf = GS.butterflies[GS.breedSlot1];
                 const ph = getPhenotype(bf.genetics);
-                s1.innerHTML = `<div class="breeding-slot-label">Parent 1</div><div style="text-align:center;">${renderButterflySVG(bf.genetics,60)}</div><div class="butterfly-name">${bf.name}</div><div class="butterfly-info">${ph.colorLabel} ${bf.gender==='macho'?'♂':'♀'}</div>`;
+                s1.innerHTML = `<div class="breeding-slot-label">Parent 1</div><div style="text-align:center;">${renderButterflySVG(bf.genetics,60)}</div><div class="butterfly-name">${bf.name}</div><div class="butterfly-info">${ph.colorLabel} ${bf.gender==='male'?'♂':'♀'}</div>`;
                 s1.classList.add('filled');
             } else {
                 s1.innerHTML = '<div class="breeding-slot-label">Parent 1</div><div style="color:var(--ink-light);font-style:italic;font-size:11px;">Click butterfly below</div>';
@@ -16700,7 +16548,7 @@
             if (GS.breedSlot2 !== null && GS.breedSlot2 < GS.butterflies.length) {
                 const bf = GS.butterflies[GS.breedSlot2];
                 const ph = getPhenotype(bf.genetics);
-                s2.innerHTML = `<div class="breeding-slot-label">Parent 2</div><div style="text-align:center;">${renderButterflySVG(bf.genetics,60)}</div><div class="butterfly-name">${bf.name}</div><div class="butterfly-info">${ph.colorLabel} ${bf.gender==='macho'?'♂':'♀'}</div>`;
+                s2.innerHTML = `<div class="breeding-slot-label">Parent 2</div><div style="text-align:center;">${renderButterflySVG(bf.genetics,60)}</div><div class="butterfly-name">${bf.name}</div><div class="butterfly-info">${ph.colorLabel} ${bf.gender==='male'?'♂':'♀'}</div>`;
                 s2.classList.add('filled');
             } else {
                 s2.innerHTML = '<div class="breeding-slot-label">Parent 2</div><div style="color:var(--ink-light);font-style:italic;font-size:11px;">Click butterfly below</div>';
@@ -16715,12 +16563,10 @@
                 const sterile1 = p1.negativeTraits && p1.negativeTraits.includes('sterile');
                 const sterile2 = p2.negativeTraits && p2.negativeTraits.includes('sterile');
                 if (sterile1 || sterile2) {
-                    warn.innerHTML = `<div style="background:rgba(180,60,60,0.15);border:1px solid #c05050;border-radius:5px;padding:8px;margin-top:8px;font-size:0.72rem;color:#c05050;"><strong>⛔ Não consegue reproduzir!</strong> Um ou ambos os progenitores são estéreis devido à consanguinidade.</div>`;
+                    warn.innerHTML = `<div style="background:rgba(180,60,60,0.15);border:1px solid #c05050;border-radius:5px;padding:8px;margin-top:8px;font-size:0.72rem;color:#c05050;"><strong>⛔ Cannot breed!</strong> One or both parents are sterile from inbreeding.</div>`;
                     btn.disabled = true;
                 } else if (coeff > 0.1) {
-                    btn.disabled = true;
-                } else if (coeff > 0.1) {
-                    warn.innerHTML = `<div style="background:rgba(180,60,60,0.1);border:1px solid #c05050;border-radius:5px;padding:8px;margin-top:8px;font-size:0.72rem;color:#c05050;"><strong>⚠ Aviso sobre consanguinidade!</strong> Parentesco: ${Math. round(coeff*100)}%. A descendência pode apresentar defeitos: asas frágeis, imunidade fraca, visão deficiente, esterilidade, deformidades.</div>`;
+                    warn.innerHTML = `<div style="background:rgba(180,60,60,0.1);border:1px solid #c05050;border-radius:5px;padding:8px;margin-top:8px;font-size:0.72rem;color:#c05050;"><strong>⚠ Aviso sobre consanguinidade!</strong> Afinidade: ${Math.round(coeff*100)}%. A descendência pode apresentar: asas frágeis, imunidade fraca, visão deficiente, esterilidade, deformidades.</div>`;
                     btn.disabled = false;
                 } else {
                     warn.innerHTML = '';
@@ -16737,7 +16583,7 @@
             const p1 = GS.butterflies[GS.breedSlot1],
                 p2 = GS.butterflies[GS.breedSlot2];
             if ((p1.negativeTraits && p1.negativeTraits.includes('sterile')) || (p2.negativeTraits && p2.negativeTraits.includes('sterile'))) {
-                notify('One parent is sterile!', 'danger');
+                notify('Um dos progenitores é estéril!', 'danger');
                 return;
             }
             const inbreedCoeff = calculateInbreeding(p1, p2);
@@ -16758,21 +16604,21 @@
             applyInbreedingEffects(o, inbreedCoeff);
             GS.butterflies.push(o);
             const ph = getPhenotype(o.genetics);
-            let msg = `Baby ${o.name} born! (${ph.colorLabel}, Gen ${o.generation})`;
+            let msg = `Bebê ${o.name} nasceu! (${ph.colorLabel}, Geração ${o.generation})`;
             if (o.isInbred) msg += ` ⚠️ INCESTUOSO (${o.negativeTraits.length} defeitos)`;
             notify(msg, o.isInbred ? 'warn' : 'success');
-            document.getElementById('offspringArea').innerHTML = `<div style="background:var(--paper-aged);border:2px solid ${o.isInbred?'var(--accent-burgundy)':'var(--accent-sage)'};border-radius:6px;padding:8px;text-align:center;">${renderButterflySVG(o.genetics,65)}<div class="butterfly-name">${o.name}</div><div class="butterfly-info">${ph.colorLabel} · Gen ${o.generation}${o.isInbred?' · ⚠️ Consanguíneo':''}</div></div>`;
+            document.getElementById('offspringArea').innerHTML = `<div style="background:var(--paper-aged);border:2px solid ${o.isInbred?'var(--accent-burgundy)':'var(--accent-sage)'};border-radius:6px;padding:8px;text-align:center;">${renderButterflySVG(o.genetics,65)}<div class="butterfly-name">${o.name}</div><div class="butterfly-info">${ph.colorLabel} · Gen ${o.generation}${o.isInbred?' · ⚠️ INCESTUOSO':''}</div></div>`;
             // Show offspring details on right page
             document.getElementById('nbRightContent').innerHTML = `
-                <div class="nb-header"><h2 class="nb-title">New Offspring!</h2><p class="nb-subtitle">${o.name} — ${ph.colorLabel}</p></div>
-                <div style="text-align:center;margin:10px 0;">${renderButterflySVG(o.genetics,100)}</div>
-                <h4 class="section-heading">Offspring Details</h4>
-                <div class="gene-row"><span class="gene-name">Name</span><span class="genotype-display">${o.name}</span></div>
-                <div class="gene-row"><span class="gene-name">Gender</span><span class="genotype-display">${o.gender==='macho'?'♂ macho':'♀ fêmea'}</span></div>
-                <div class="gene-row"><span class="gene-name">Generation</span><span class="genotype-display">G${o.generation}</span></div>
-                <div class="gene-row"><span class="gene-name">Parents</span><span class="genotype-display">${p1.name} × ${p2.name}</span></div>
-                <div class="gene-row"><span class="gene-name">Personality</span><span class="genotype-display"><span class="personality-badge ${o.personality}">${o.personality}</span></span></div>
-                ${o.isInbred?`<div class="gene-row"><span class="gene-name" style="color:var(--accent-burgundy);">Inbreeding</span><span class="genotype-display" style="color:var(--accent-burgundy);">${Math.round(o.inbreedCoeff*100)}% — ${o.negativeTraits.length} defect${o.negativeTraits.length!==1?'s':''}</span></div>`:''}`;
+        <div class="nb-header"><h2 class="nb-title">Novos Filhotes!</h2><p class="nb-subtitle">${o.name} — ${ph.colorLabel}</p></div>
+        <div style="text-align:center;margin:10px 0;">${renderButterflySVG(o.genetics,100)}</div>
+        <h4 class="section-heading">Offspring Details</h4>
+        <div class="gene-row"><span class="gene-name">Name</span><span class="genotype-display">${o.name}</span></div>
+        <div class="gene-row"><span class="gene-name">Gender</span><span class="genotype-display">${o.gender==='male'?'♂ Macho':'♀ Femea'}</span></div>
+        <div class="gene-row"><span class="gene-name">Generation</span><span class="genotype-display">G${o.generation}</span></div>
+        <div class="gene-row"><span class="gene-name">Parents</span><span class="genotype-display">${p1.name} × ${p2.name}</span></div>
+        <div class="gene-row"><span class="gene-name">Personality</span><span class="genotype-display"><span class="personality-badge ${o.personality}">${o.personality}</span></span></div>
+        ${o.isInbred?`<div class="gene-row"><span class="gene-name" style="color:var(--accent-burgundy);">Inbreeding</span><span class="genotype-display" style="color:var(--accent-burgundy);">${Math.round(o.inbreedCoeff*100)}% — ${o.negativeTraits.length} defect${o.negativeTraits.length!==1?'s':''}</span></div>`:''}`;
             GS.breedSlot1 = null;
             GS.breedSlot2 = null;
             updateBreedSlots();
@@ -17880,7 +17726,8 @@
             event.target.classList.add('active');
         }
 
-           const playlist = [
+
+        const playlist = [
             "https://files.catbox.moe/tvpzkh.mp3",
             "https://files.catbox.moe/09x8a9.mp3",
             "https://files.catbox.moe/17ucu7.mp3",
@@ -17915,7 +17762,6 @@
 
             }
         }
-
 
 
         function toggleSFX() {
@@ -18495,7 +18341,7 @@
                 ctx.fillText('Thank you!!', bx + bw / 2, by + 17);
                 ctx.fillStyle = '#e880a8';
                 ctx.font = '5.5px "Press Start 2P", monospace';
-                ctx.fillText('Feito com \u2764 por Gabi', bx + bw / 2, by + 34);
+                ctx.fillText('made with \u2764 by mochi', bx + bw / 2, by + 34);
                 ctx.textAlign = 'start';
                 ctx.globalAlpha = 1;
             }
