@@ -23189,16 +23189,16 @@ Error generating stack: ` + a.message + `
         }
         var u1 = t1();
         const Ee = [{
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            title: "Morning Dew",
+            src: "https://files.catbox.moe/09x8a9.mp3",
+            title: "Desabrochar da Primavera",
             icon: "🌿"
         }, {
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-            title: "Fireplace Dreams",
+            src: "https://files.catbox.moe/tvpzkh.mp3",
+            title: "Asas Mecânicas",
             icon: "🕯️"
         }, {
-            src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-            title: "Garden Waltz",
+            src: "https://files.catbox.moe/17ucu7.mp3https://files.catbox.moe/17ucu7.mp3",
+            title: "Valsa do Jardim",
             icon: "🌷"
         }, {
             src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
@@ -23362,7 +23362,7 @@ Error generating stack: ` + a.message + `
         .cottage-player {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 20px;
             z-index: 999
         }
 
@@ -23638,7 +23638,7 @@ Error generating stack: ` + a.message + `
         @media(max-width:480px) {
             .cottage-player {
                 bottom: 15px;
-                right: 15px
+                left: 915px;
             }
 
             .player-btn {
@@ -23691,6 +23691,8 @@ Error generating stack: ` + a.message + `
             <div class="title-particle" style="width: 1.78011px; height: 1.78011px; left: 62.8356%; bottom: -10px; background: rgba(255, 200, 100, 0.235); animation: 15.0288s ease-in 3.35852s infinite normal none running particleRise;"></div>
         </div>
         <div class="title-content">
+            <div id="ach-popup-wrap"></div>
+            <div id="ach-popup-wrap"></div>
             <div class="title-butterflies">
                 <div class="title-bf left" id="titleBfLeft"><svg viewBox="0 0 85 95" width="70" height="78" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
                         <rect x="45" y="30" width="5" height="5" fill="#0A0500" shape-rendering="crispEdges"></rect>
@@ -40467,6 +40469,404 @@ Error generating stack: ` + a.message + `
         }
     </style>
 
+
+    <style>
+        .ach-cat-header {
+            font-family: 'Pixel-Script';
+            font-size: 13px;
+            color: var(--ink-brown);
+            text-align: center;
+            border-bottom: 1px solid var(--ink-light);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            letter-spacing: 1px;
+            margin: 12px 0 6px;
+            padding-bottom: 3px;
+        }
+
+
+        .ach-cat-header:first-child {
+            margin-top: 0;
+        }
+
+        .ach-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            padding: 4px 5px;
+            border-radius: 3px;
+            margin-bottom: 2px;
+        }
+
+        .ach-item.done {
+            background: rgba(122, 158, 126, .08);
+        }
+
+        .ach-item.locked {
+            opacity: .5;
+        }
+
+        .ach-item-icon {
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            line-height: 1;
+        }
+
+        .ach-item-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ach-item-name {
+            font-family: var(--font-body);
+            font-size: .78rem;
+            color: var(--ink-black);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            line-height: 1.3;
+        }
+
+        .ach-check {
+            font-size: .6rem;
+            color: var(--accent-sage);
+            flex-shrink: 0;
+        }
+
+        @font-face {
+            font-family: "scotch-display";
+            src: url(https://use.typekit.net/af/d074b3/0000000…/30/l?primer=7cdcb44…&fvd=n7&v=3) format("woff2"), url(https://use.typekit.net/af/d074b3/0000000…/30/d?primer=7cdcb44…&fvd=n7&v=3) format("woff"), url(https://use.typekit.net/af/d074b3/0000000…/30/a?primer=7cdcb44…&fvd=n7&v=3) format("opentype");
+            font-display: auto;
+            font-style: normal;
+            font-weight: 700;
+            font-stretch: normal;
+        }
+
+        .ach-item-desc {
+            font-family: var(--font-accent);
+            font-size: .68rem;
+            color: var(--ink-light);
+            font-style: italic;
+            line-height: 1.3;
+        }
+
+        .ach-item-tip {
+            font-family: var(--font-accent);
+            font-size: .65rem;
+            color: var(--accent-sage);
+            font-style: italic;
+            border-left: 2px solid rgba(122, 158, 126, .35);
+            padding-left: 4px;
+            margin-top: 1px;
+            line-height: 1.3;
+        }
+
+        /* progress bar */
+        .ach-progress-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            background: rgba(44, 36, 29, 0.1);
+            width: 100%;
+            position: relative;
+        }
+
+        .ach-progress-title {
+            font-family: Pinyon Script', cursive;
+ font-size: 2.2rem;
+            color: #2c241d;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            align-items: center !important;
+            justify-content: center !important;
+            border-bottom: 1px solid var(--ink-light);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            position: relative;
+
+        }
+
+        .ach-progress-title::after {
+            content: "2";
+            position: absolute;
+            font-family: var(--orn);
+            bottom: -32px;
+            align-items: center !important;
+            justify-content: center !important;
+            background-image: url(https://i.imgur.com/BspyVOP.png);
+            padding: 0 0.5px;
+            color: var(--ink-sepia);
+            font-size: 29px;
+        }
+
+        .ach-progress-count {
+            color: var(--cream);
+            align-items: center !important;
+            justify-content: center !important;
+            font: italic 900 30px 'scotch-display';
+            font-style: italic;
+            background: linear-gradient(135deg, var(--sage), var(--accent-sage), var(--accent-sage-dark));
+            padding: 3px 8px;
+            border-radius: 10px;
+            letter-spacing: 1px;
+        }
+
+        .ach-bar-wrap {
+            height: 4px;
+            background: rgba(150, 140, 120, .18);
+            border-radius: 2px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .ach-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--lavender), var(--rose), transparent);
+            border-radius: 2px;
+            transition: width .6s ease;
+        }
+
+        /* ── Right page: Tips guide with accordions ── */
+        .ach-tips-title {
+            font-family: var(--font-title);
+            font-size: 15px;
+            color: var(--ink-brown);
+            letter-spacing: 1.5px;
+            text-align: center;
+            border-bottom: 1px solid var(--ink-light);
+            margin-bottom: 12px;
+            padding-bottom: 7px;
+        }
+
+        .ach-accordion {
+            border: 1px solid rgba(150, 140, 120, .2);
+            border-radius: 4px;
+            margin-bottom: 5px;
+            overflow: hidden;
+            background: rgba(244, 241, 232, .4);
+        }
+
+        .ach-acc-btn {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        /* Ajuste na Label para alinhar com a linha */
+        .ach-acc-label {
+            font-family: 'fleur', serif;
+            font-size: 29px;
+            color: var(--ink-black);
+            display: flex;
+            /* Adicionado para alinhar a linha ao lado do texto */
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        /* Corrigido: Removido o espaço antes de :after e ajustado o estilo */
+        .ach-acc-label::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            /* Linha mais fina para parecer "ink" */
+            background: var(--dark-brown, #5c4033);
+            border-radius: 10px;
+            margin-left: 15px;
+            /* Espaço entre o texto e a linha */
+            opacity: 0.3;
+            /* Deixa mais sutil */
+        }
+
+        /* Ajuste no botão para que a label e os ícones fiquem na mesma linha */
+        .ach-acc-btn {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            /* Alinha tudo à esquerda */
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+            /* Espaçamento entre os elementos */
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* O ícone decorativo "c" */
+        .ach-acc-label-icon {
+            font-family: var(--orn);
+            font-size: 2rem;
+            color: #737ab7;
+            order: 2;
+            /* Move para depois da linha se quiser */
+        }
+
+
+        .ach-acc-chevron {
+            font-size: .5rem;
+            color: var(--ink-light);
+            transition: transform .18s;
+        }
+
+        .ach-accordion.open .ach-acc-chevron {
+            transform: rotate(180deg);
+        }
+
+        .ach-accordion-body {
+            display: none;
+            padding: 2px 10px 8px 12px;
+        }
+
+        .ach-accordion.open .ach-accordion-body {
+            display: block;
+        }
+
+        .ach-tip-row {
+            font-family: var(--font-accent);
+            font-size: .7rem;
+            color: var(--ink-sepia);
+            font-style: italic;
+            padding: 3px 0;
+            border-bottom: 1px solid rgba(150, 140, 120, .08);
+            display: flex;
+            gap: 5px;
+            line-height: 1.45;
+        }
+
+        .ach-tip-row:last-child {
+            border-bottom: none;
+        }
+
+        .ach-tip-bullet {
+            color: var(--accent-gold);
+            flex-shrink: 0;
+            font-style: normal;
+        }
+
+        /* ── Popup — bottom right, away from game notifs ── */
+        #ach-popup-wrap {
+            position: fixed;
+            bottom: 20px;
+            right: 16px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 6px;
+            pointer-events: none;
+            max-width: 300px;
+        }
+
+        .ach-popup {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--paper-cream, #f4f1e8);
+            border: 1.5px solid rgba(166, 138, 90, .55);
+            border-radius: 6px;
+            padding: 8px 12px 8px 10px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, .45), 0 0 8px rgba(166, 138, 90, .1);
+            pointer-events: auto;
+            position: relative;
+            overflow: hidden;
+            animation: achIn .35s cubic-bezier(.22, 1, .36, 1) forwards;
+        }
+
+        @keyframes achIn {
+            from {
+                opacity: 0;
+                transform: translateX(105%)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        @keyframes achOut {
+            from {
+                opacity: 1;
+                transform: translateX(0)
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(105%)
+            }
+        }
+
+        .ach-popup.leaving {
+            animation: achOut .28s ease-in forwards;
+        }
+
+        .ach-popup-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 220, 100, .1), transparent);
+            animation: achShine .7s ease .05s forwards;
+        }
+
+        @keyframes achShine {
+            from {
+                left: -100%
+            }
+
+            to {
+                left: 200%
+            }
+        }
+
+        .ach-popup-icon {
+            font-size: 20px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .ach-popup-texts {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ach-popup-label {
+            font-family: var(--font-accent, 'Crimson Text', serif);
+            font-size: .6rem;
+            color: var(--ink-light);
+            font-style: italic;
+            margin-bottom: 1px;
+        }
+
+        .ach-popup-name {
+            font-family: var(--font-body, 'Crimson Text', serif);
+            font-size: .8rem;
+            color: var(--ink-black);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ach-popup-desc {
+            font-family: var(--font-accent, 'Crimson Text', serif);
+            font-size: .65rem;
+            color: var(--ink-light);
+            font-style: italic;
+            line-height: 1.25;
+        }
+    </style>
+
+
     <!-- ══ DOM ══ -->
 
 
@@ -41240,6 +41640,1149 @@ Error generating stack: ` + a.message + `
             });
 
             console.log('[EasterEgg v5] bookshelf(7x->image dancer) microscope(300ms+correct%) notebook(flip->dev) dev spino OK');
+        })();
+    </script>
+
+    <script>
+        (function() {
+            'use strict';
+
+            /* ═══════════════════════════════════════════════════════════════
+               60 ACHIEVEMENTS
+            ═══════════════════════════════════════════════════════════════ */
+            var CATS = [{
+                    id: 'primeiros',
+                    label: '🌱 Primeiros Passos'
+                },
+                {
+                    id: 'colecao',
+                    label: '📦 Coleção'
+                },
+                {
+                    id: 'geracoes',
+                    label: '📜 Gerações'
+                },
+                {
+                    id: 'aventuras',
+                    label: '🗺️ Aventuras'
+                },
+                {
+                    id: 'genetica',
+                    label: '⚗️ Genética'
+                },
+                {
+                    id: 'criacao',
+                    label: '🧬 Criação'
+                },
+                {
+                    id: 'cuidados',
+                    label: '🌸 Cuidados'
+                },
+                {
+                    id: 'divertido',
+                    label: '😄 Momentos Notáveis'
+                },
+                {
+                    id: 'segredo',
+                    label: '🔮 Segredos'
+                },
+            ];
+
+            var ACH = [
+                /* ── Primeiros Passos ── */
+                {
+                    id: 'first_open',
+                    cat: 'primeiros',
+                    icon: '🌱',
+                    name: 'Bem-vinda(o)!',
+                    desc: 'O laboratório está aberto. Tudo começa aqui.',
+                    tip: null
+                },
+                {
+                    id: 'first_birth',
+                    cat: 'primeiros',
+                    icon: '🦋',
+                    name: 'Primeiro Voo',
+                    desc: 'Sua primeira borboleta veio ao mundo.',
+                    tip: null
+                },
+                {
+                    id: 'first_breed',
+                    cat: 'primeiros',
+                    icon: '🧬',
+                    name: 'Geneticista',
+                    desc: 'Primeiro cruzamento realizado. A ciência começa!',
+                    tip: 'Borboletas de regiões diferentes geram filhotes mais raros.'
+                },
+                {
+                    id: 'first_plant',
+                    cat: 'primeiros',
+                    icon: '🌿',
+                    name: 'Jardineiro(a)',
+                    desc: 'Primeira planta cultivada na estufa.',
+                    tip: 'Certas plantas atraem borboletas de regiões específicas.'
+                },
+                {
+                    id: 'first_adventure',
+                    cat: 'primeiros',
+                    icon: '🗺️',
+                    name: 'Explorador(a)',
+                    desc: 'Primeira expedição enviada. O mundo aguarda!',
+                    tip: 'Treine sua borboleta antes de enviar para regiões perigosas.'
+                },
+                {
+                    id: 'first_death',
+                    cat: 'primeiros',
+                    icon: '🕯️',
+                    name: 'Ciclo da Vida',
+                    desc: 'Toda borboleta tem seu tempo. Honre a memória.',
+                    tip: null
+                },
+                {
+                    id: 'first_save',
+                    cat: 'primeiros',
+                    icon: '💾',
+                    name: 'Precavida(o)',
+                    desc: 'Primeiro salvamento manual realizado. Bom hábito!',
+                    tip: null
+                },
+                {
+                    id: 'first_train',
+                    cat: 'primeiros',
+                    icon: '🏋️',
+                    name: 'Personal Trainer',
+                    desc: 'Treinou uma borboleta pela primeira vez.',
+                    tip: 'Agilidade ajuda em aventuras, beleza aumenta raridade.'
+                },
+
+                /* ── Coleção ── */
+                {
+                    id: 'col_5',
+                    cat: 'colecao',
+                    icon: '📁',
+                    name: 'Colecionador(a) Iniciante',
+                    desc: '5 borboletas na coleção.',
+                    tip: null
+                },
+                {
+                    id: 'col_10',
+                    cat: 'colecao',
+                    icon: '📦',
+                    name: 'Colecionador(a)',
+                    desc: '10 borboletas na coleção.',
+                    tip: null
+                },
+                {
+                    id: 'col_25',
+                    cat: 'colecao',
+                    icon: '🗂️',
+                    name: 'Entusiasta',
+                    desc: '25 borboletas. A estufa está ficando viva!',
+                    tip: null
+                },
+                {
+                    id: 'col_50',
+                    cat: 'colecao',
+                    icon: '🗄️',
+                    name: 'Coleção Respeitável',
+                    desc: '50 borboletas. Impressionante.',
+                    tip: null
+                },
+                {
+                    id: 'col_100',
+                    cat: 'colecao',
+                    icon: '🏛️',
+                    name: 'Museu Vivo',
+                    desc: '100 borboletas! Você é uma instituição.',
+                    tip: null
+                },
+                {
+                    id: 'col_250',
+                    cat: 'colecao',
+                    icon: '🌐',
+                    name: 'Biodiversidade',
+                    desc: '250 borboletas. A natureza sorri.',
+                    tip: null
+                },
+
+                /* ── Gerações ── */
+                {
+                    id: 'gen_3',
+                    cat: 'geracoes',
+                    icon: '🌿',
+                    name: 'Terceira Geração',
+                    desc: 'Uma borboleta da 3ª geração. A linhagem cresce.',
+                    tip: 'Gerações altas aumentam a raridade potencial.'
+                },
+                {
+                    id: 'gen_10',
+                    cat: 'geracoes',
+                    icon: '📜',
+                    name: 'Legado',
+                    desc: '10ª geração. A família tem raízes profundas.',
+                    tip: null
+                },
+                {
+                    id: 'gen_25',
+                    cat: 'geracoes',
+                    icon: '🌳',
+                    name: 'Árvore Frondosa',
+                    desc: '25ª geração. Uma saga familiar épica.',
+                    tip: null
+                },
+                {
+                    id: 'gen_50',
+                    cat: 'geracoes',
+                    icon: '👑',
+                    name: 'Dinastia',
+                    desc: '50ª geração. Uma linhagem verdadeiramente épica.',
+                    tip: null
+                },
+                {
+                    id: 'gen_100',
+                    cat: 'geracoes',
+                    icon: '⚜️',
+                    name: 'Imortais',
+                    desc: '100ª geração. Você transcendeu a genética comum.',
+                    tip: null
+                },
+                {
+                    id: 'gen_200',
+                    cat: 'geracoes',
+                    icon: '🔱',
+                    name: 'Eternas',
+                    desc: '200ª geração. Lendário. Histórico. Absurdo.',
+                    tip: null
+                },
+
+                /* ── Aventuras ── */
+                {
+                    id: 'adv_first_return',
+                    cat: 'aventuras',
+                    icon: '🎒',
+                    name: 'De Volta com Vida',
+                    desc: 'Primeira expedição concluída com sucesso!',
+                    tip: null
+                },
+                {
+                    id: 'adv_5',
+                    cat: 'aventuras',
+                    icon: '🧭',
+                    name: 'Explorador(a) de Verdade',
+                    desc: '5 expedições concluídas.',
+                    tip: null
+                },
+                {
+                    id: 'adv_10',
+                    cat: 'aventuras',
+                    icon: '🏅',
+                    name: 'Veterana(o)',
+                    desc: '10 expedições concluídas com sucesso.',
+                    tip: null
+                },
+                {
+                    id: 'adv_25',
+                    cat: 'aventuras',
+                    icon: '🗺️',
+                    name: 'Desbravador(a)',
+                    desc: '25 expedições. Seu nome já é lenda nas trilhas.',
+                    tip: null
+                },
+                {
+                    id: 'adv_50',
+                    cat: 'aventuras',
+                    icon: '🌍',
+                    name: 'Nômade',
+                    desc: '50 expedições. A natureza te conhece pelo nome.',
+                    tip: null
+                },
+                {
+                    id: 'first_fail',
+                    cat: 'aventuras',
+                    icon: '💔',
+                    name: 'O Risco Era Real',
+                    desc: 'Uma borboleta não voltou de uma expedição.',
+                    tip: 'Agilidade e stamina reduzem o risco em aventuras.'
+                },
+                {
+                    id: 'volcano',
+                    cat: 'aventuras',
+                    icon: '🌋',
+                    name: 'Filha do Vulcão',
+                    desc: 'Primeira expedição à Caldeira Amber concluída.',
+                    tip: 'Regiões vulcânicas têm recompensas raras e surpresas...'
+                },
+                {
+                    id: 'arctic',
+                    cat: 'aventuras',
+                    icon: '🧊',
+                    name: 'Resistência Polar',
+                    desc: 'Sobreviveu ao Ártico. Não é para qualquer borboleta.',
+                    tip: null
+                },
+                {
+                    id: 'all_regions',
+                    cat: 'aventuras',
+                    icon: '🌐',
+                    name: 'Mundo Explorado',
+                    desc: 'Visitou todas as regiões pelo menos uma vez.',
+                    tip: 'Cada região tem mutações positivas exclusivas.'
+                },
+
+                /* ── Genética ── */
+                {
+                    id: 'first_mut',
+                    cat: 'genetica',
+                    icon: '⚗️',
+                    name: 'Mutante!',
+                    desc: 'Primeira mutação observada. A evolução acontece.',
+                    tip: 'Mutações positivas são mais prováveis em regiões específicas.'
+                },
+                {
+                    id: 'neg_mut',
+                    cat: 'genetica',
+                    icon: '⚠️',
+                    name: 'Efeitos Colaterais',
+                    desc: 'Uma borboleta adquiriu uma mutação negativa.',
+                    tip: 'Cruzamentos entre parentes aumentam mutações negativas.'
+                },
+                {
+                    id: 'rare_found',
+                    cat: 'genetica',
+                    icon: '🔵',
+                    name: 'Algo Raro',
+                    desc: 'Uma borboleta Rara foi encontrada ou criada.',
+                    tip: null
+                },
+                {
+                    id: 'epic_found',
+                    cat: 'genetica',
+                    icon: '🟣',
+                    name: 'Épica!',
+                    desc: 'Uma borboleta Épica. Sua genética é especial.',
+                    tip: null
+                },
+                {
+                    id: 'legendary_found',
+                    cat: 'genetica',
+                    icon: '🟡',
+                    name: 'Lendária!',
+                    desc: 'Uma borboleta Lendária. A genética do impossível.',
+                    tip: null
+                },
+                {
+                    id: 'mythic_found',
+                    cat: 'genetica',
+                    icon: '🌈',
+                    name: 'Mítica!!!',
+                    desc: 'Uma borboleta Mítica. Isso não deveria existir.',
+                    tip: null
+                },
+                {
+                    id: 'five_muts',
+                    cat: 'genetica',
+                    icon: '🧫',
+                    name: 'Laboratório Caótico',
+                    desc: 'Uma borboleta acumulou 5 mutações diferentes.',
+                    tip: null
+                },
+                {
+                    id: 'homozygous_rare',
+                    cat: 'genetica',
+                    icon: '💎',
+                    name: 'Pureza Rara',
+                    desc: 'Uma borboleta homozigota para um alelo muito raro.',
+                    tip: null
+                },
+
+                /* ── Criação ── */
+                {
+                    id: 'breed_5',
+                    cat: 'criacao',
+                    icon: '🔬',
+                    name: 'Primeira Linhagem',
+                    desc: '5 cruzamentos realizados.',
+                    tip: null
+                },
+                {
+                    id: 'breed_20',
+                    cat: 'criacao',
+                    icon: '🧪',
+                    name: 'Pesquisador(a)',
+                    desc: '20 cruzamentos. Seu caderno está cheio de dados.',
+                    tip: null
+                },
+                {
+                    id: 'breed_50',
+                    cat: 'criacao',
+                    icon: '🏭',
+                    name: 'Fábrica Genética',
+                    desc: '50 cruzamentos. Eficiência máxima.',
+                    tip: null
+                },
+                {
+                    id: 'inbreeding',
+                    cat: 'criacao',
+                    icon: '😬',
+                    name: 'Sweet Home Alabama',
+                    desc: 'Cruzou borboletas aparentadas. Esperemos o melhor.',
+                    tip: null
+                },
+                {
+                    id: 'deep_inbreed',
+                    cat: 'criacao',
+                    icon: '🏰',
+                    name: 'Realeza Europeia',
+                    desc: 'Inbreeding profundo detectado. Muito... tradicional.',
+                    tip: null
+                },
+                {
+                    id: 'perfect_pair',
+                    cat: 'criacao',
+                    icon: '💑',
+                    name: 'Par Perfeito',
+                    desc: 'Cruzou duas borboletas Raras ou mais. Bons genes!',
+                    tip: null
+                },
+                {
+                    id: 'legendary_pair',
+                    cat: 'criacao',
+                    icon: '✨',
+                    name: 'Convergência Lendária',
+                    desc: 'Cruzou duas borboletas Lendárias. A natureza agradece.',
+                    tip: null
+                },
+
+                /* ── Cuidados ── */
+                {
+                    id: 'feed_10',
+                    cat: 'cuidados',
+                    icon: '🍯',
+                    name: 'Boa Nutrição',
+                    desc: 'Alimentou uma borboleta 10 vezes.',
+                    tip: null
+                },
+                {
+                    id: 'max_beauty',
+                    cat: 'cuidados',
+                    icon: '🌺',
+                    name: 'Esplendorosa',
+                    desc: 'Uma borboleta atingiu beleza máxima.',
+                    tip: 'Beleza alta aumenta a pontuação de raridade.'
+                },
+                {
+                    id: 'max_stamina',
+                    cat: 'cuidados',
+                    icon: '💪',
+                    name: 'Incansável',
+                    desc: 'Uma borboleta atingiu stamina máxima.',
+                    tip: 'Stamina alta reduz o risco de morte em aventuras.'
+                },
+                {
+                    id: 'max_agility',
+                    cat: 'cuidados',
+                    icon: '⚡',
+                    name: 'Relâmpago',
+                    desc: 'Uma borboleta atingiu agilidade máxima.',
+                    tip: 'Agilidade alta encontra mais tesouros em aventuras.'
+                },
+                {
+                    id: 'max_all',
+                    cat: 'cuidados',
+                    icon: '🏆',
+                    name: 'Borboleta Perfeita',
+                    desc: 'Uma borboleta maximizou todos os atributos de treino!',
+                    tip: null
+                },
+                {
+                    id: 'graveyard_10',
+                    cat: 'cuidados',
+                    icon: '🌸',
+                    name: 'Jardim Memorial',
+                    desc: '10 borboletas no Memorial Garden. Elas não serão esquecidas.',
+                    tip: null
+                },
+
+                /* ── Momentos Notáveis ── */
+                {
+                    id: 'mass_death',
+                    cat: 'divertido',
+                    icon: '💀',
+                    name: 'Desastre Total',
+                    desc: '5 borboletas morreram em um curto período. Isso foi... uma fase.',
+                    tip: null
+                },
+                {
+                    id: 'comeback',
+                    cat: 'divertido',
+                    icon: '🌅',
+                    name: 'Das Cinzas',
+                    desc: 'Ficou com apenas 1 borboleta viva e reconstruiu a coleção.',
+                    tip: null
+                },
+                {
+                    id: 'name_all',
+                    cat: 'divertido',
+                    icon: '✍️',
+                    name: 'Nomenclatura Oficial',
+                    desc: 'Nomeou 20 borboletas diferentes. Científico(a) dedicado(a).',
+                    tip: null
+                },
+                {
+                    id: 'night_play',
+                    cat: 'divertido',
+                    icon: '🌙',
+                    name: 'Coruja do Lab',
+                    desc: 'Jogou depois da meia-noite. A ciência não dorme.',
+                    tip: null
+                },
+                {
+                    id: 'adventurous',
+                    cat: 'divertido',
+                    icon: '🎲',
+                    name: 'Vai Encarar?',
+                    desc: 'Enviou para o vulcão uma borboleta de geração 1.',
+                    tip: null
+                },
+
+                /* ── Segredos (??? até desbloquear) ── */
+                {
+                    id: 'bookshelf',
+                    cat: 'segredo',
+                    icon: '📚',
+                    name: 'Atrás da Estante',
+                    name_locked: '???',
+                    desc: 'Persistência recompensada. Havia alguém lá atrás.',
+                    desc_locked: 'As estantes guardam mais do que livros...',
+                    tip: null
+                },
+                {
+                    id: 'micro_doodle',
+                    cat: 'segredo',
+                    icon: '🔬',
+                    name: 'Olhos de Cientista',
+                    name_locked: '???',
+                    desc: 'Você olhou mais de perto do que era esperado.',
+                    desc_locked: 'O microscópio revela mais do que células, se souber onde olhar...',
+                    tip: null
+                },
+                {
+                    id: 'dev_room',
+                    cat: 'segredo',
+                    icon: '🚪',
+                    name: 'Sala Secreta',
+                    name_locked: '???',
+                    desc: 'Você encontrou a dev no quarto escondido. Parabéns.',
+                    desc_locked: 'Existe algo além das paredes do laboratório...',
+                    tip: null
+                },
+                {
+                    id: 'dev_pet_25',
+                    cat: 'segredo',
+                    icon: '💜',
+                    name: 'Amiga(o) da Dev',
+                    name_locked: '???',
+                    desc: 'Deu 25 carinhos na dev. Ela ficou muito feliz.',
+                    desc_locked: 'A dev parece receptiva a interações...',
+                    tip: null
+                },
+                {
+                    id: 'dev_poke_all',
+                    cat: 'segredo',
+                    icon: '👆',
+                    name: 'Cutucar é uma Arte',
+                    name_locked: '???',
+                    desc: 'Viu todas as reações de cutucar da dev.',
+                    desc_locked: 'Às vezes a impertinência revela coisas novas...',
+                    tip: null
+                },
+                {
+                    id: 'spinosaurus',
+                    cat: 'segredo',
+                    icon: '🦕',
+                    name: 'Amizade Improvável',
+                    name_locked: '???',
+                    desc: 'Um dinossauro gigante ficou encantado com sua borboleta.',
+                    desc_locked: 'Algo antigo e enorme vive nas profundezas da Caldeira Amber...',
+                    tip: null
+                },
+                {
+                    id: 'spino_mutation',
+                    cat: 'segredo',
+                    icon: '⭐',
+                    name: 'Bênção do Cretáceo',
+                    name_locked: '???',
+                    desc: 'Sua borboleta carrega a marca de uma era passada.',
+                    desc_locked: 'Criaturas da Caldeira concedem presentes únicos...',
+                    tip: null
+                },
+                {
+                    id: 'all_spino_muts',
+                    cat: 'segredo',
+                    icon: '🦖',
+                    name: 'Zoóloga do Impossível',
+                    name_locked: '???',
+                    desc: 'Coletou todas as mutações do Spinosaurus mirabilis.',
+                    desc_locked: 'Dizem que o dino tem mais de um presente guardado...',
+                    tip: null
+                },
+            ];
+
+            var TIPS = [{
+                    title: 'Começando',
+                    items: [
+                        'Plante flores na estufa para atrair borboletas novas',
+                        'Alimente e treine sua borboleta antes de aventuras',
+                        'Cada borboleta tem uma personalidade que afeta seu comportamento',
+                        'Nomeie suas borboletas favoritas — o memorial guarda memórias',
+                        'O laboratório tem mais segredos do que parece — explore!',
+                    ]
+                },
+                {
+                    title: 'Genética',
+                    items: [
+                        'A (dominante) mascara a (recessivo) — Aa parece igual a AA',
+                        'Cruzar borboletas de regiões diferentes aumenta a raridade',
+                        'Evite cruzar parentes próximos — mutações negativas surgem',
+                        'Gerações mais altas = maior pontuação de raridade base',
+                        'Traços recessivos podem surgir em filhotes inesperadamente',
+                        'Alelos homozigóticos raros dão bônus extra de raridade',
+                    ]
+                },
+                {
+                    title: 'Aventuras',
+                    items: [
+                        'Regiões perigosas (vulcão, ártico) têm recompensas únicas',
+                        'Stamina alta = mais chances de sobrevivência',
+                        'Borboletas curiosas encontram mais tesouros',
+                        'Cada região tem mutações positivas exclusivas',
+                        'Aventuras longas rendem mais — mas o risco é maior',
+                        'Registre quais regiões você visitou na Árvore Genealógica',
+                    ]
+                },
+                {
+                    title: 'Raridade',
+                    items: [
+                        'Raridade depende de: alelos, região, geração e treino',
+                        'Borboletas Lendárias e Míticas têm bônus especiais de stats',
+                        'Certas mutações só aparecem em regiões específicas',
+                        'Inbreeding reduz a pontuação de raridade',
+                        'Personalidade sábia adiciona pontos extras de raridade',
+                        'Treino máximo em Beleza aumenta bastante a raridade',
+                    ]
+                },
+                {
+                    title: 'Dicas Avançadas',
+                    items: [
+                        'Mantenha borboletas saudáveis para aventuras mais longas',
+                        'Consulte a Árvore Genealógica para evitar inbreeding',
+                        'Borboletas do Memorial Garden tiveram uma vida completa',
+                        'Combine mutações positivas para efeitos únicos',
+                        'Algumas raridades só aparecem em combinações específicas de alelos',
+                    ]
+                },
+                {
+                    title: 'Segredos',
+                    items: [
+                        'Explore bem o laboratório — há mais do que parece...',
+                        'Alguns objetos do lab são clicáveis',
+                        'Interaja com tudo pelo menos uma vez',
+                        'O caderno tem páginas que se desbloqueiam com o tempo',
+                        'Preste atenção nas mensagens do narrador 👀',
+                    ]
+                },
+            ];
+
+            /* ── Storage ── */
+            var SK = 'jl_ach_v3';
+
+            function _load() {
+                try {
+                    return JSON.parse(localStorage.getItem(SK) || '{}');
+                } catch (e) {
+                    return {};
+                }
+            }
+
+            function _save(d) {
+                try {
+                    localStorage.setItem(SK, JSON.stringify(d));
+                } catch (e) {}
+            }
+            var _un = _load();
+
+            function isUnlocked(id) {
+                return !!_un[id];
+            }
+
+            function unlock(id) {
+                if (_un[id]) return;
+                _un[id] = Date.now();
+                _save(_un);
+                var a = ACH.find(function(x) {
+                    return x.id === id;
+                });
+                if (a) _popup(a);
+                _renderPanel();
+            }
+            window.achUnlock = unlock;
+
+            /* ── Popup ── */
+            function _popup(a) {
+                var wrap = document.getElementById('ach-popup-wrap');
+                if (!wrap) return;
+                var el = document.createElement('div');
+                el.className = 'ach-popup';
+                var nm = a.name || a.name_locked || a.id;
+                var dsc = a.desc || a.desc_locked || '';
+                el.innerHTML = '<div class="ach-popup-shine"></div>' +
+                    '<div class="ach-popup-icon">' + a.icon + '</div>' +
+                    '<div class="ach-popup-texts">' +
+                    '<div class="ach-popup-label">✦ Conquista Desbloqueada ✦</div>' +
+                    '<div class="ach-popup-name">' + nm + '</div>' +
+                    '<div class="ach-popup-desc">' + dsc + '</div>' +
+                    '</div>';
+                wrap.appendChild(el);
+                setTimeout(function() {
+                    el.classList.add('leaving');
+                    setTimeout(function() {
+                        el.remove();
+                    }, 290);
+                }, 4600);
+            }
+
+            /* ═══════════════════════════════════════════════════════════════
+               INJECT TAB INTO NOTEBOOK
+               We add a .nb-tab button and .nb-section to the existing system
+            ═══════════════════════════════════════════════════════════════ */
+            function _injectNotebook() {
+                var nbTabs = document.querySelector('.nb-tabs');
+                var leftPage = document.querySelector('.nb-leftpage');
+                if (!nbTabs || !leftPage) {
+                    setTimeout(_injectNotebook, 500);
+                    return;
+                }
+                if (document.getElementById('ach-nb-tab')) return; // already done
+
+                /* ── Add tab button ── */
+                var btn = document.createElement('button');
+                btn.className = 'nb-tab';
+                btn.id = 'ach-nb-tab';
+                btn.textContent = '🏆 Conquistas';
+                btn.onclick = function() {
+                    /* deactivate other tabs using the game's switchNbTab if available */
+                    if (typeof switchNbTab === 'function') {
+                        /* We replicate what switchNbTab does: deactivate all sections & tabs */
+                        document.querySelectorAll('.nb-section').forEach(function(s) {
+                            s.classList.remove('active');
+                        });
+                        document.querySelectorAll('.nb-tab').forEach(function(t) {
+                            t.classList.remove('active');
+                        });
+                    } else {
+                        document.querySelectorAll('.nb-section').forEach(function(s) {
+                            s.classList.remove('active');
+                        });
+                        document.querySelectorAll('.nb-tab').forEach(function(t) {
+                            t.classList.remove('active');
+                        });
+                    }
+                    btn.classList.add('active');
+                    var sec = document.getElementById('nbLeft-conquistas');
+                    if (sec) sec.classList.add('active');
+                    /* Populate right page with tips */
+                    var rp = document.getElementById('nbRightContent');
+                    if (rp) rp.innerHTML = _tipsHTML();
+                    _renderPanel();
+                };
+                nbTabs.appendChild(btn);
+
+                /* ── Add section div ── */
+                var sec = document.createElement('div');
+                sec.className = 'nb-section';
+                sec.id = 'nbLeft-conquistas';
+                sec.innerHTML = '<div id="ach-panel-inner"></div>';
+                leftPage.appendChild(sec);
+
+                /* Patch switchNbTab so clicking other tabs resets the right page properly */
+                if (typeof switchNbTab === 'function') {
+                    var origSwitch = switchNbTab;
+                    switchNbTab = function(name, el) {
+                        origSwitch(name, el);
+                    };
+                }
+            }
+
+            /* ── Render achievement list inside left page ── */
+            function _renderPanel() {
+                var inner = document.getElementById('ach-panel-inner');
+                if (!inner) return;
+                /* only render if our tab is active */
+                var sec = document.getElementById('nbLeft-conquistas');
+                if (!sec || !sec.classList.contains('active')) return;
+
+                var total = ACH.length;
+                var got = ACH.filter(function(a) {
+                    return isUnlocked(a.id);
+                }).length;
+                var pct = total ? Math.round(got / total * 100) : 0;
+
+                var h = '<div class="nb-header">' +
+                    '<h2 class="nb-title">Diário de Conquistas</h2>' + '<p class="nb-subtitle">Seu catálogo de conquistas e descobertas</p>' +
+                    '</div>' +
+                    '<div class="ach-bar-wrap"><div class="ach-bar-fill" style="width:' + pct + '%"></div></div>' + '<span class="ach-progress-count">' + got + '/' + total + '</span>';
+
+                CATS.forEach(function(cat) {
+                    var items = ACH.filter(function(a) {
+                        return a.cat === cat.id;
+                    });
+                    if (!items.length) return;
+                    h += '<div class="ach-cat-header">' + cat.label + '</div>';
+                    items.forEach(function(a) {
+                        var done = isUnlocked(a.id);
+                        var isSecret = a.cat === 'segredo';
+                        var nm = (done || !isSecret) ? (a.name || a.id) : (a.name_locked || '???');
+                        var dsc = (done || !isSecret) ? (a.desc || '') : (a.desc_locked || '...');
+                        var ico = (done || !isSecret) ? a.icon : '🔒';
+                        h += '<div class="ach-item ' + (done ? 'done' : 'locked') + '">' +
+                            '<div class="ach-item-icon">' + ico + '</div>' +
+                            '<div class="ach-item-body">' +
+                            '<div class="ach-item-name">' + (done ? '<span class="ach-check">✓</span>' : '') + nm + '</div>' +
+                            '<div class="ach-item-desc">' + dsc + '</div>' +
+                            (!done && a.tip ? '<div class="ach-item-tip">💡 ' + a.tip + '</div>' : '') +
+                            '</div>' +
+                            '</div>';
+                    });
+                });
+                inner.innerHTML = h;
+            }
+
+            /* ── Tips HTML for right page ── */
+            function _tipsHTML() {
+                var h = '<div class="nb-header"><div class="nb-title">Diário de Observação</div><div class="nb-subtitle">Anotações sobre o bater de asas e segredos da herança</div></div>';
+                TIPS.forEach(function(s, i) {
+                    h += '<div class="ach-accordion" id="ach-acc-' + i + '">' +
+                        '<button class="ach-acc-btn" onclick="achAcc(' + i + ')">' +
+                        '<div class="ach-acc-label">' + s.title + '</div>' + '<div class="ach-acc-label-icon">c</div>' +
+                        '<span class="ach-acc-chevron">✦</span>' +
+                        '</button>' +
+                        '<div class="ach-accordion-body">';
+                    s.items.forEach(function(t) {
+                        h += '<div class="ach-tip-row"><span class="ach-tip-bullet">❧</span>' + t + '</div>';
+                    });
+                    h += '</div></div>';
+                });
+                return h;
+            }
+            window.achAcc = function(i) {
+                var el = document.getElementById('ach-acc-' + i);
+                if (el) el.classList.toggle('open');
+            };
+
+            /* ═══════════════════════════════════════════════════════════════
+               GAME HOOKS
+            ═══════════════════════════════════════════════════════════════ */
+            setTimeout(function() {
+                unlock('first_open');
+            }, 1200);
+
+            /* Night owl */
+            if (new Date().getHours() >= 0 && new Date().getHours() < 5) unlock('night_play');
+
+            /* Periodic GS scan */
+            function _scan() {
+                if (!window.GS) return;
+                var bf = GS.butterflies || [];
+                if (bf.length > 0) unlock('first_birth');
+
+                /* collection milestones */
+                var alive = bf.filter(function(b) {
+                    return !b.dead;
+                });
+                if (alive.length >= 5) unlock('col_5');
+                if (alive.length >= 10) unlock('col_10');
+                if (alive.length >= 25) unlock('col_25');
+                if (alive.length >= 50) unlock('col_50');
+                if (alive.length >= 100) unlock('col_100');
+                if (alive.length >= 250) unlock('col_250');
+
+                /* named butterflies */
+                var named = bf.filter(function(b) {
+                    return b.name && b.name.trim() && b.name !== 'Borboleta';
+                });
+                if (named.length >= 20) unlock('name_all');
+
+                /* generation milestones */
+                var maxGen = bf.reduce(function(m, b) {
+                    return Math.max(m, b.generation || 0);
+                }, 0);
+                if (maxGen >= 3) unlock('gen_3');
+                if (maxGen >= 10) unlock('gen_10');
+                if (maxGen >= 25) unlock('gen_25');
+                if (maxGen >= 50) unlock('gen_50');
+                if (maxGen >= 100) unlock('gen_100');
+                if (maxGen >= 200) unlock('gen_200');
+
+                /* mutations */
+                var hasMut = bf.some(function(b) {
+                    return b.mutations && b.mutations.length > 0;
+                });
+                if (hasMut) unlock('first_mut');
+                var hasNeg = bf.some(function(b) {
+                    return b.mutations && b.mutations.some(function(m) {
+                        var NEGS = ['broken_wing', 'weak_immune', 'sterile', 'deformed', 'no_flight', 'inbred_albino',
+                            'asymmetry', 'short_life', 'chronic_tremor', 'hypermetabolism', 'fused_antenna',
+                            'progressive_disease', 'fragile_exo', 'severe_lethargy', 'malformed_wings',
+                            'wing_necrosis', 'immune_collapse', 'photophobia', 'genetic_fog', 'anxiety_disorder', 'faded_color'
+                        ];
+                        return NEGS.indexOf(m) >= 0;
+                    });
+                });
+                if (hasNeg) unlock('neg_mut');
+                var maxMuts = bf.reduce(function(m, b) {
+                    return Math.max(m, (b.mutations || []).length);
+                }, 0);
+                if (maxMuts >= 5) unlock('five_muts');
+
+                /* spino mutations */
+                var SMIDS = ['spino_sail', 'spino_aqua', 'spino_apex', 'spino_therm', 'spino_bond'];
+                var hasSpino = bf.some(function(b) {
+                    return b.mutations && SMIDS.some(function(s) {
+                        return b.mutations.includes(s);
+                    });
+                });
+                if (hasSpino) {
+                    unlock('spinosaurus');
+                    unlock('spino_mutation');
+                }
+                var allSpino = SMIDS.every(function(s) {
+                    return bf.some(function(b) {
+                        return b.mutations && b.mutations.includes(s);
+                    });
+                });
+                if (allSpino) unlock('all_spino_muts');
+
+                /* inbreeding */
+                if (bf.some(function(b) {
+                        return (b.inbreedingLevel || 0) >= 1;
+                    })) unlock('inbreeding');
+                if (bf.some(function(b) {
+                        return (b.inbreedingLevel || 0) >= 3;
+                    })) unlock('deep_inbreed');
+
+                /* rarity */
+                if (typeof calculateRarityScore === 'function') {
+                    bf.forEach(function(b) {
+                        try {
+                            var s = calculateRarityScore(b);
+                            if (s >= 40) unlock('rare_found');
+                            if (s >= 64) unlock('epic_found');
+                            if (s >= 80) unlock('legendary_found');
+                            if (s >= 93) unlock('mythic_found');
+                            /* check homozygous rare */
+                            if (b.genetics) {
+                                var g = b.genetics;
+                                var RARE_ALLELES = ['I', 'F', 'S', 'E'];
+                                if (g.wingColor && RARE_ALLELES.indexOf(g.wingColor[0]) >= 0 && g.wingColor[0] === g.wingColor[1])
+                                    unlock('homozygous_rare');
+                            }
+                        } catch (e) {}
+                    });
+                    /* perfect pair check */
+                    var rareBf = bf.filter(function(b) {
+                        try {
+                            return calculateRarityScore(b) >= 40;
+                        } catch (e) {
+                            return false;
+                        }
+                    });
+                    if (rareBf.length >= 2) unlock('perfect_pair');
+                    var legendBf = bf.filter(function(b) {
+                        try {
+                            return calculateRarityScore(b) >= 80;
+                        } catch (e) {
+                            return false;
+                        }
+                    });
+                    if (legendBf.length >= 2) unlock('legendary_pair');
+                }
+
+                /* training */
+                if (bf.some(function(b) {
+                        return (b.beauty || 0) >= 100;
+                    })) unlock('max_beauty');
+                if (bf.some(function(b) {
+                        return (b.stamina || 0) >= 100;
+                    })) unlock('max_stamina');
+                if (bf.some(function(b) {
+                        return (b.agility || 0) >= 100;
+                    })) unlock('max_agility');
+                if (bf.some(function(b) {
+                        return (b.beauty || 0) >= 100 && (b.stamina || 0) >= 100 && (b.agility || 0) >= 100;
+                    })) unlock('max_all');
+
+                /* deaths */
+                var dead = (GS.graveyard ? GS.graveyard.length : 0) + bf.filter(function(b) {
+                    return b.dead;
+                }).length;
+                if (dead >= 1) unlock('first_death');
+                if (dead >= 5) unlock('mass_death');
+                if (dead >= 10) unlock('graveyard_10');
+
+                /* comeback: only 1 alive but have a graveyard */
+                if (alive.length <= 1 && dead >= 3) unlock('comeback');
+
+                /* planting */
+                var plants = (GS.greenhouse && GS.greenhouse.plants) ? GS.greenhouse.plants.filter(function(p) {
+                    return p && p.id;
+                }).length : 0;
+                if (plants > 0) unlock('first_plant');
+
+                /* all regions */
+                var vis = GS.visitedRegions || [];
+                var ALL = ['meadow', 'forest', 'mountain', 'cave', 'desert', 'tropical', 'arctic', 'volcano', 'coast'];
+                if (ALL.every(function(r) {
+                        return vis.includes(r);
+                    })) unlock('all_regions');
+                if (vis.includes('volcano')) unlock('volcano');
+                if (vis.includes('arctic')) unlock('arctic');
+            }
+            setInterval(_scan, 2800);
+
+            /* Hook breed */
+            (function tryB() {
+                var k = window.breedButterflies ? 'breedButterflies' : window.performBreeding ? 'performBreeding' : window.breed ? 'breed' : null;
+                if (!k) {
+                    setTimeout(tryB, 700);
+                    return;
+                }
+                var o = window[k],
+                    bc = 0;
+                window[k] = function() {
+                    unlock('first_breed');
+                    bc++;
+                    if (bc >= 5) unlock('breed_5');
+                    if (bc >= 20) unlock('breed_20');
+                    if (bc >= 50) unlock('breed_50');
+                    return o.apply(this, arguments);
+                };
+            })();
+
+            /* Hook first train */
+            (function tryT() {
+                var k = window.trainButterfly ? 'trainButterfly' : window.train ? 'train' : null;
+                if (!k) {
+                    setTimeout(tryT, 700);
+                    return;
+                }
+                var o = window[k],
+                    tc = 0;
+                window[k] = function() {
+                    unlock('first_train');
+                    tc++;
+                    if (tc >= 10) unlock('feed_10');
+                    return o.apply(this, arguments);
+                };
+            })();
+
+            /* Hook adventure */
+            (function tryA() {
+                if (typeof completeAdventure !== 'function') {
+                    setTimeout(tryA, 500);
+                    return;
+                }
+                var o = completeAdventure,
+                    n = 0,
+                    failN = 0;
+                completeAdventure = function(idx) {
+                    var adv = window.GS && GS.activeAdventures && GS.activeAdventures[idx];
+                    var bfId = adv ? adv.butterflyId : null;
+                    var reg = adv ? adv.region : null;
+                    var bfBefore = bfId && window.GS ? GS.butterflies.find(function(b) {
+                        return b.id === bfId;
+                    }) : null;
+                    var wasGen1 = bfBefore && (bfBefore.generation || 0) === 1 && reg === 'volcano';
+                    o.apply(this, arguments);
+                    n++;
+                    unlock('adv_first_return');
+                    if (n >= 5) unlock('adv_5');
+                    if (n >= 10) unlock('adv_10');
+                    if (n >= 25) unlock('adv_25');
+                    if (n >= 50) unlock('adv_50');
+                    if (wasGen1) unlock('adventurous');
+                    /* region tracking */
+                    if (reg) {
+                        GS.visitedRegions = GS.visitedRegions || [];
+                        if (!GS.visitedRegions.includes(reg)) GS.visitedRegions.push(reg);
+                    }
+                    /* check if butterfly died */
+                    var bfAfter = bfId && window.GS ? GS.butterflies.find(function(b) {
+                        return b.id === bfId;
+                    }) : null;
+                    if (bfBefore && (!bfAfter || (bfAfter && bfAfter.dead))) unlock('first_fail');
+                };
+            })();
+
+            /* Hook dev room */
+            var _oDev = window.eeOpenDev;
+            window.eeOpenDev = function() {
+                unlock('dev_room');
+                unlock('micro_doodle');
+                if (_oDev) _oDev.apply(this, arguments);
+            };
+
+            /* Hook pet count */
+            var _oPet = window.eePet;
+            window.eePet = function() {
+                if (_oPet) _oPet.apply(this, arguments);
+                var dPets = (window._devPetCount || 0);
+                if (dPets >= 25) unlock('dev_pet_25');
+            };
+            /* Track poke messages seen */
+            var _pokesSeen = 0;
+            var _oPoke = window.eePoke;
+            window.eePoke = function() {
+                if (_oPoke) _oPoke.apply(this, arguments);
+                _pokesSeen++;
+                if (_pokesSeen >= 8) unlock('dev_poke_all');
+            };
+
+            /* Hook bookshelf */
+            (function tryShelf() {
+                var shelf = document.querySelector('.bookshelf');
+                if (!shelf) {
+                    setTimeout(tryShelf, 800);
+                    return;
+                }
+                shelf.addEventListener('click', function() {
+                    var d = document.getElementById('ee-dancer');
+                    if (d && d.classList.contains('on')) unlock('bookshelf');
+                });
+            })();
+
+            /* Hook save */
+            (function tryS() {
+                var k = window.saveGame ? 'saveGame' : window.save ? 'save' : null;
+                if (!k) {
+                    setTimeout(tryS, 700);
+                    return;
+                }
+                var o = window[k];
+                window[k] = function() {
+                    unlock('first_save');
+                    return o.apply(this, arguments);
+                };
+            })();
+
+            /* Inject notebook tab */
+            if (document.readyState === 'loading')
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(_injectNotebook, 800);
+                });
+            else
+                setTimeout(_injectNotebook, 800);
+
+            console.log('[Achievements v3] ' + ACH.length + ' achievements, notebook tab, collapsible tips, popup bottom-right');
         })();
     </script>
 </body>
