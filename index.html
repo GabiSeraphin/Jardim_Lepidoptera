@@ -4010,7 +4010,33 @@
             }
         }
 
+        .title-lang {
+            position: absolute;
+            bottom: 20px;
+            right: 24px;
+            z-index: 20;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            border: 1px solid rgba(184, 160, 96, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(200, 170, 100, 0.6);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .title-lang:hover {
+            border-color: rgba(184, 160, 96, 0.5);
+            color: var(--paper-cream);
+            background: rgba(255, 255, 255, 0.06);
+        }
 
         .title-version {
             position: absolute;
@@ -24277,23 +24303,20 @@ Error generating stack: ` + a.message + `
                         <rect x="144" y="0" width="12" height="12" fill="#333333" shape-rendering="crispEdges"></rect>
                     </svg></div>
             </div>
-            <h1 class="title-name"><span class="accent">Jardim</span>
-                <div class="no-translate">Lepidoptera</div>
-            </h1>
-            <p class="title-subtitle">
-                Imago Magnum Opus - Liberte suas asas</p>
+            <h1 class="title-name"><span class="accent">Jardim</span><br>Lepidoptera</h1>
+            <p class="title-subtitle" data-i18n="title_subtitle">Imago Magnum Opus - Liberte suas asas</p>
         </div>
         <p></p>
         <div class="title-divider"></div>
-        <p class="title-quote">"Nas asas de uma borboleta, pode-se ler a antiga linguagem da hereditariedade — cada padrão um verso, cada cor uma palavra transmitida através das gerações."</p>
+        <p class="title-quote" data-i18n="title_quote">"Nas asas de uma borboleta, pode-se ler a antiga linguagem da hereditariedade — cada padrão um verso, cada cor uma palavra transmitida através das gerações."</p>
         <div class="title-buttons">
             <!-- 1. NEW GAME -->
             <button class="title-btn new-game" onclick="startNewGame()">
                 <div class="title-btn-icon">
                     <img src="https://files.catbox.moe/jyrzz4.png" alt="Ícone" width="180" height="96">
                 </div>
-                <div class="title-btn-label">Iniciar Novo Jogo</div>
-                <div class="title-btn-desc">Iniciar um novo diário de investigação e descobrir os segredos da genética das borboletas</div>
+                <div class="title-btn-label" data-i18n="btn_new">Novo Jogo</div>
+                <div class="title-btn-desc" data-i18n="btn_new_desc">Iniciar um novo diário de investigação e descobrir os segredos da genética das borboletas</div>
             </button>
 
             <!-- 2. LOAD GAME -->
@@ -24301,8 +24324,8 @@ Error generating stack: ` + a.message + `
                 <div class="title-btn-icon">
                     <img src="https://i.postimg.cc/62yRS92V/monarch-butterfly-icon.png" alt="Monarch-butterfly-icon" width="180" height="96">
                 </div>
-                <div class="title-btn-label">Carregar Jogos Salvos</div>
-                <div class="title-btn-desc">Continuar a sua investigação a partir de uma sessão anterior guardada neste navegador</div>
+                <div class="title-btn-label" data-i18n="btn_load">Carregar</div>
+                <div class="title-btn-desc" data-i18n="btn_load_desc">Continuar a sua investigação a partir de uma sessão anterior guardada neste navegador</div>
             </button>
 
             <!-- 3. CRÉDITOS -->
@@ -24323,7 +24346,7 @@ Error generating stack: ` + a.message + `
         </div>
 
         <button class="title-lang" id="langBtn" onclick="toggleLanguage()" title="Change Language">PT</button>
-        <div class="title-version">v1.5</div>
+        <div class="title-version">v1.4</div>
         <div id="root">
             <div class="cottage-player">
                 <div class="track-popup ">
@@ -24437,28 +24460,7 @@ Error generating stack: ` + a.message + `
                         </span>
                         <span class="new-dot">✦</span>
                     </div>
-                    <!-- 🪨 TAB 5 - FOSSIL -->
-                    <div class="bookmark" data-content="6" onclick="showContent(6)" style="--bg: rgb(253, 248, 240); --border: rgb(163, 148, 132);">
-                        <svg viewBox="0 0 40 48" class="bookmark-svg">
-                            <path d="M 4 0 H 36 C 38.2 0 40 1.8 40 4 V 48 L 20 40 L 0 48 V 4 C 0 1.8 1.8 0 4 0 Z" fill="var(--bg)" stroke="var(--border)" stroke-width="2" />
-                        </svg>
-                        <span class="bookmark-icon">
-                            <span style="color: rgb(163, 148, 132);">
-                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-                                    <path d="M6 3C4 3 3 4.5 3 6.5C3 9 5 10 5 13C5 15 4 17 4 19C4 20.5 5 21 6.5 21C8 21 9 20 10 18"></path>
-                                    <path d="M18 3C20 3 21 4.5 21 6.5C21 9 19 10 19 13C19 15 20 17 20 19C20 20.5 19 21 17.5 21C16 21 15 20 14 18"></path>
-                                    <ellipse cx="12" cy="6" rx="3" ry="2"></ellipse>
-                                    <ellipse cx="12" cy="12" rx="3.5" ry="2"></ellipse>
-                                    <ellipse cx="12" cy="18" rx="3" ry="2"></ellipse>
-                                    <circle cx="8" cy="9" r="1"></circle>
-                                    <circle cx="16" cy="9" r="1"></circle>
-                                    <circle cx="8" cy="15" r="1"></circle>
-                                    <circle cx="16" cy="15" r="1"></circle>
-                                </svg>
-                            </span>
-                        </span>
-                        <span class="new-dot">✦</span>
-                    </div>
+                    
 
                     <!-- UPDATE PANEL -->
                     <div class="update-panel" id="update-panel">
@@ -24485,9 +24487,7 @@ Error generating stack: ` + a.message + `
                                 <span class="update-date">✦13 mar</span>
                             </div>
                             <div class="update-body">
-                                <p>Primeira versão de lançamento do <b>
-                                        <div class="no-translate">Jardim Lepidoptera </div>
-                                    </b>! Ainda tem <u>muita coisa</u> que eu tenho que <u>resolver, concertar e adicionar</u>, mas essa é a função da primeira versão, não é?</p>
+                                <p>Primeira versão de lançamento do <b>Jardim Lepidoptera</b>! Ainda tem <u>muita coisa</u> que eu tenho que <u>resolver, concertar e adicionar</u>, mas essa é a função da primeira versão, não é?</p>
                                 <h3>✿ Lista de funcionalidades</h3>
                                 <p>Genetica funciona, passei uma boa dor de cabeça tentado resolver porque na ultima versao que eu tinha nao funcionava.</p>
                                 <ul>
@@ -24623,7 +24623,7 @@ Error generating stack: ` + a.message + `
                                 <span class="update-date">✦18 mar</span>
                             </div>
                             <div class="update-body">
-                                <p>Uma <b>grande atualização</b> chegou ao <b>Jardim <div class="no-translate">Lepidoptera </div></b>! 🎶✨</p>
+                                <p>Uma <b>grande atualização</b> chegou ao <b>Jardim Lepidoptera</b>! 🎶✨</p>
                                 <h3>🎵 O que há de novo</h3>
                                 <ul>
                                     <li><b>Remake do Music Player</b> — o leitor de música foi completamente redesenhado, com uma nova interface mais bonita e funcional.</li>
@@ -24638,44 +24638,60 @@ Error generating stack: ` + a.message + `
                             </div>
                         </div>
                         <!-- 🪨 UPDATE 6: Fósseis & Geologia -->
-                        <div class="update-content" data-id="6">
-                            <div class="update-header">
-                                <h2 class="update-title">
-                                    <span style="color: rgb(163, 148, 132);">
-                                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
-                                            <path d="M6 3C4 3 3 4.5 3 6.5C3 9 5 10 5 13C5 15 4 17 4 19C4 20.5 5 21 6.5 21C8 21 9 20 10 18"></path>
-                                            <path d="M18 3C20 3 21 4.5 21 6.5C21 9 19 10 19 13C19 15 20 17 20 19C20 20.5 19 21 17.5 21C16 21 15 20 14 18"></path>
-                                            <ellipse cx="12" cy="6" rx="3" ry="2"></ellipse>
-                                            <ellipse cx="12" cy="12" rx="3.5" ry="2"></ellipse>
-                                            <ellipse cx="12" cy="18" rx="3" ry="2"></ellipse>
-                                            <circle cx="8" cy="9" r="1"></circle>
-                                            <circle cx="16" cy="9" r="1"></circle>
-                                            <circle cx="8" cy="15" r="1"></circle>
-                                            <circle cx="16" cy="15" r="1"></circle>
-                                        </svg>
-                                    </span>
-                                    Fósseis &amp; Geologia
-                                </h2>
-                                <span class="new-badge">NEW</span>
-                                <span class="update-date">✦19 mar</span>
-                            </div>
-                            <div class="update-body">
-                                <p>Uma atualização <b>enorme</b> cheia de novos sistemas e melhorias visuais! 🪨🦋</p>
+                <div class="update-content" data-id="6">
+                    <div class="update-header">
+                        <h2 class="update-title">
+                            <span style="color: rgb(163, 148, 132);">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+                                    <path d="M6 3C4 3 3 4.5 3 6.5C3 9 5 10 5 13C5 15 4 17 4 19C4 20.5 5 21 6.5 21C8 21 9 20 10 18"></path>
+                                    <path d="M18 3C20 3 21 4.5 21 6.5C21 9 19 10 19 13C19 15 20 17 20 19C20 20.5 19 21 17.5 21C16 21 15 20 14 18"></path>
+                                    <ellipse cx="12" cy="6" rx="3" ry="2"></ellipse>
+                                    <ellipse cx="12" cy="12" rx="3.5" ry="2"></ellipse>
+                                    <ellipse cx="12" cy="18" rx="3" ry="2"></ellipse>
+                                    <circle cx="8" cy="9" r="1"></circle>
+                                    <circle cx="16" cy="9" r="1"></circle>
+                                    <circle cx="8" cy="15" r="1"></circle>
+                                    <circle cx="16" cy="15" r="1"></circle>
+                                </svg>
+                            </span>
+                            Fósseis &amp; Geologia
+                        </h2>
+                        <span class="new-badge">NEW</span>
+                        <span class="update-date">✦19 mar</span>
+                    </div>
+                    <div class="update-body">
+                        <p>Uma atualização <b>enorme</b> cheia de novos sistemas e melhorias visuais! 🪨🦋</p>
 
+                        <h3>🪨 Sistema de Datação de Fósseis</h3>
+                        <p>Um sistema completamente novo! Agora podes <u>descobrir e datar fósseis</u> de borboletas antigas, desenterrando a história escondida do <b>Jardim Lepidoptera</b>.</p>
+                        <ul>
+                            <li><b>Sistema de Datação de Fósseis</b> — Escava, descobre e data fósseis de borboletas pré-históricas!</li>
+                            <li><b>Geologia</b> — Novo sistema de <u>camadas geológicas</u> com diferentes eras e descobertas únicas em cada uma.</li>
+                        </ul>
 
-                                <ul>
-                                 <li>Sistema de Datação de Fósseis️</li>
-                                  <li><i>Botao de Idiomas</i> — Resolvido <u>Agora funciona 100% ingles e portugues</u></li>
-                                  <li><b>Pixel Art</b> — Adicionada pixel art original feita por mim! ️</li>
-                                </ul>
+                        <h3>🏆 Conquistas Atualizadas</h3>
+                        <ul>
+                            <li><b>Conquistas</b> — Sistema de conquistas <u>atualizado</u> com novas medalhas, recompensas e desafios para completar!</li>
+                        </ul>
 
-                                <div class="highlight-box highlight-lavender">
-                                    🪨 versão atual v1.5 — <b>Sistema de Fósseis</b>! Toda a pixel art foi desenhada por mim com muito carinho 🖌️✨ e tambem nota eu tniha essa atualizaçao pronta aum bom tempo mas eu esqueci de atualizar ... é...  <img src="https://i.ibb.co/s6M3f6N/IMG-8207.gif" alt="clown" width="20">
-                                </div>
+                        <h3>🎨 Pixel Art Original</h3>
+                        <ul>
+                            <li><b>Pixel Art</b> — Adicionada <u>pixel art original</u> feita à mão por mim! Novas ilustrações para borboletas, itens e cenários do jogo. 🖌️</li>
+                        </ul>
 
-                                <div class="divider">🪨 — ✿ — 🪨</div>
-                            </div>
+                        <h3>✿ Redesign de Abas</h3>
+                        <ul>
+                            <li><b>Aba de Aventuras</b> — Completamente <u>redesenhada</u> para um design mais eficiente e mais próximo da minha visão original.</li>
+                            <li><b>Aba da Estufa</b> — <u>Redesenhada</u> com um novo layout mais bonito e organizado, muito mais fácil de usar!</li>
+                        </ul>
+
+                        <div class="highlight-box highlight-lavender">
+                            🪨 versão atual v1.5 — Explora o passado com o novo <b>Sistema de Fósseis</b>! Toda a pixel art foi desenhada por mim com muito carinho 🖌️✨ e tambem nota eu tniha essa atualizaçao pronta aum bom tempo mas eu esqueci de atualizar ... é... <img src="https://i.ibb.co/s6M3f6N/IMG-8207.gif" alt="clown" width="20">
                         </div>
+
+                        <div class="divider">🪨 — ✿ — 🪨</div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div> <!-- /hidden-bookmarks -->
@@ -24687,7 +24703,7 @@ Error generating stack: ` + a.message + `
     <div class="save-modal" id="saveModal">
         <div class="save-modal-box">
             <button class="save-modal-close" onclick="closeSaveModal()">×</button>
-            <h2 class="save-modal-title" id="saveModalTitle">Carregar Jogo</h2>
+            <h2 class="save-modal-title" id="saveModalTitle" data-i18n="load_title">Carregar Jogo</h2>
             <div id="saveSlotsList"></div>
         </div>
     </div>
@@ -24704,10 +24720,11 @@ Error generating stack: ` + a.message + `
                     <div id="creditsTopSpacer"></div>
 
                     <div class="cr-icon">🦋</div>
-                    <div class="cr-title">
-                        <div class="no-translate">Jardim<br>Lepidoptera</div>
+                    <div class="cr-title">Jardim<br>Lepidoptera</div>
+                    <div class="cr-subtitle"><span style="font-family: 'Arquitec';">Imago Magnum Opus</span> - Liberte suas asas
+
                     </div>
-                    <p class="title-subtitle">Imago Magnum Opus - Liberte suas asas</p>
+
                     <div class="cr-gene">
                     </div>
                     <br>
@@ -24716,7 +24733,7 @@ Error generating stack: ` + a.message + `
                     </div>
                     <br>
 
-                    <div class="cr-section">✦ <div class="no-translate">Jardim Lepidoptera </div> foi Criado por ✦</div>
+                    <div class="cr-section">✦ Jardim Lepidoptera foi Criado por ✦</div>
                     <div class="cr-name cr-name-main">
                         <div style="text-align: center; color: ##999782;">
                             Gabi Seraphin
@@ -25032,9 +25049,9 @@ Error generating stack: ` + a.message + `
                     <div class="cr-divider" style="letter-spacing:10px;">✦ ✦ ✦</div>
 
                     <div class="cr-final">
-                        Obrigada por jogar<br><br>
+                        Thank you for playing<br><br>
                         <span style="font-size:1.6rem;"><img src="https://64.media.tumblr.com/758939cbf6938f9361b3344cc904d40c/343e2a72052f2ac3-1a/s75x75_c1/53b1ae061a467afcec8ec05147306f487eb64d7b.gifv" alt="Saúde" width="20"></span><br><br>
-                        <div class="no-translate"> Jardim Lepidoptera </div>
+                        Jardim Lepidoptera
                     </div>
                     <div class="cr-final-small">
                         Cada borboleta é única.<br>
@@ -25059,9 +25076,7 @@ Error generating stack: ` + a.message + `
             <button class="credits-skip" id="creditsSkip">PULAR ▸</button>
 
             <div class="credits-end" id="creditsEnd">
-                <div class="credits-end-title" id="creditsEndTitle">
-                    <div class="no-translate"> Jardim Lepidoptera</div>
-                </div>
+                <div class="credits-end-title" id="creditsEndTitle">Jardim Lepidoptera</div>
                 <div class="credits-end-butterfly" id="creditsEndBf">🦋</div>
                 <div class="credits-end-sub" id="creditsEndSub">♡ Obrigado por jogar ♡</div>
                 <button class="credits-end-close" id="creditsEndClose" onclick="closeCreditsModal()">Fechar</button>
@@ -25071,7 +25086,7 @@ Error generating stack: ` + a.message + `
 
     <div class="loading-screen" id="loadingScreen" style="display:none;">
         <div style="font-size:4rem;" class="animate-float" id="loadingBf"></div>
-        <div class="loading-text">Preparando o Laboratório de Genética... &lt;br&gt;𝑃𝑜𝑟 𝑓𝑎𝑣𝑜𝑟, 𝑎𝑔𝑢𝑎𝑟𝑑𝑒 </div>
+        <div class="loading-text" data-i18n="loading_text">Preparando o Laboratório de Genética... &lt;br&gt;𝑃𝑜𝑟 𝑓𝑎𝑣𝑜𝑟, 𝑎𝑔𝑢𝑎𝑟𝑑𝑒 </div>
     </div>
     <div class="notifications" id="notifications"></div>
 
@@ -25644,6 +25659,92 @@ Error generating stack: ` + a.message + `
     </div>
 
     <script>
+        let currentLang = localStorage.getItem('bgl_lang') || 'pt';
+
+        const I18N = {
+            en: {
+                title_subtitle: ' Imago Magnum Opus - Liberte suas asas',
+                title_quote: '"In the wings of a butterfly, one can read the ancient language of heredity — each pattern a verse, each colour a word passed down through generations."',
+                btn_new: 'New Game',
+                btn_new_desc: 'Begin a new research journal and discover the secrets of butterfly genetics',
+                btn_load: 'Load Game',
+                btn_load_desc: 'Continue your research from a previous session saved in this browser',
+                btn_credits: 'Credits',
+                btn_credits_desc: 'About this game, acknowledgements, and the science behind the genetics',
+                load_title: 'Load Game',
+                save_title: 'Save Game',
+                slot_empty: 'Empty Slot',
+                slot_day: 'Dia',
+                slot_butterflies: 'borboletas',
+                credits_title: 'Credits & Special Thanks',
+                credits_design: 'Design & Development',
+                credits_design_text: 'A labour of love for biology and genetics education',
+                credits_science: 'The Science',
+                credits_science_text: 'Based on Mendelian inheritance principles, including dominance, recessiveness, independent assortment, and the real genetic consequences of inbreeding depression',
+                credits_tech: 'Technology',
+                credits_thanks: 'Special Thanks',
+                credits_thanks_text: 'To all the butterflies whose beauty inspires wonder and scientific curiosity',
+                credits_footer: 'All butterfly genetics are procedurally generated. No real butterflies were harmed.',
+                loading_text: 'Preparing the Genetics Lab... <br>𝑃𝑙𝑒𝑎𝑠𝑒 𝑤𝑎𝑖𝑡',
+                confirm_delete: 'Delete this save?',
+                confirm_new: 'Choose a save slot:',
+                save_success: 'Game saved!',
+                load_success: 'Game loaded!',
+                delete_success: 'Save deleted.',
+                no_saves: 'No saved games found.'
+            },
+            pt: {
+                title_subtitle: 'Imago Magnum Opus - Liberte suas asas',
+                title_quote: '"Nas asas de uma borboleta, pode-se ler a antiga linguagem da hereditariedade — cada padrão um verso, cada cor uma palavra transmitida através das gerações."',
+                btn_new: 'Novo Jogo',
+                btn_new_desc: 'Iniciar um novo diário de investigação e descobrir os segredos da genética das borboletas',
+                btn_load: 'Carregar',
+                btn_load_desc: 'Continuar a sua investigação a partir de uma sessão anterior guardada neste navegador',
+                btn_credits: 'Creditos & Agradacimentos',
+                btn_credits_desc: 'Sobre este jogo, agradecimentos e a ciência por detrás da genética',
+                load_title: 'Carregar Jogo',
+                save_title: 'Guardar Jogo',
+                slot_empty: 'Espaço Vazio',
+                slot_day: 'Dia',
+                slot_butterflies: 'borboletas',
+                credits_title: 'Créditos ﹠ Agradecimentos',
+                credits_design: 'Design e Desenvolvimento',
+                credits_design_text: 'Um trabalho de amor pela educação em biologia e genética',
+                credits_science: 'A Ciência',
+                credits_science_text: 'Baseado nos princípios de hereditariedade Mendeliana, incluindo dominância, recessividade, segregação independente e as consequências genéticas reais da depressão por consanguinidade',
+                credits_tech: 'Tecnologia',
+                credits_thanks: 'Agradecimentos Especiais',
+                credits_thanks_text: 'A todas as borboletas cuja beleza inspira admiração e curiosidade científica',
+                credits_footer: 'Toda a genética das borboletas é gerada proceduralmente. Nenhuma borboleta real foi prejudicada.',
+                loading_text: 'Preparando o Laboratório de Genética... <br>𝑃𝑜𝑟 𝑓𝑎𝑣𝑜𝑟, 𝑎𝑔𝑢𝑎𝑟𝑑𝑒 ',
+                confirm_delete: 'Deseja eliminar este ficheiro?',
+                confirm_new: 'Escolha um espaço:',
+                save_success: 'Jogo guardado ',
+                load_success: 'Jogo carregado ',
+                delete_success: 'Ficheiro eliminado com sucesso ꪜ',
+                no_saves: 'Nenhum jogo guardado encontrado.'
+            }
+        };
+
+        function t(key) {
+            return (I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || key;
+        }
+
+        function applyLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (I18N[currentLang] && I18N[currentLang][key]) el.textContent = I18N[currentLang][key];
+            });
+            const langBtn = document.getElementById('langBtn');
+            if (langBtn) langBtn.textContent = currentLang.toUpperCase();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'pt' : 'en';
+            localStorage.setItem('bgl_lang', currentLang);
+            applyLanguage();
+        }
+
         // ════════════════════════════════════════════════════════════════
         // SAVE / LOAD SYSTEM (localStorage)
         // ════════════════════════════════════════════════════════════════
@@ -25711,6 +25812,10 @@ Error generating stack: ` + a.message + `
                 GS.settings = data.settings || {
                     musicOn: false,
                     sfxOn: true
+                };
+                if (data.lang) {
+                    currentLang = data.lang;
+                    localStorage.setItem('bgl_lang', currentLang);
                 }
                 notify(t('load_success'));
                 return true;
@@ -33228,6 +33333,9 @@ Error generating stack: ` + a.message + `
         function clamp(v, mn, mx) {
             return Math.max(mn, Math.min(mx, v));
         }
+        /* ═══════════════════════════════════════════════════════
+                  ✿  LEPIDOPTERA FIELD NOTES — Notification Engine  ✿
+          ═══════════════════════════════════════════════════════ */
 
         const NOTIF_TYPES = {
             success: {
@@ -39673,6 +39781,25 @@ Error generating stack: ` + a.message + `
 
 
 
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     JARDIM LEPIDOPTERA — EASTER EGG ADDON v5
+     Paste BEFORE </body>, after rarity_addon + mutations_addon.
+
+     MICROSCOPE: exact port of oy() from React lab
+       - percentage-based formula: width=${100*zoom}%, left=${-x*(zoom-1)*0.5}%
+       - transition:all 300ms (this is what made it smooth in original!)
+       - doodle at SVG (88,88) — visible at zoom>=4, x>=85, y>=85
+       - single zoom-IN button only (like original)
+
+     BOOKSHELF: placeholder image dancer behind bookshelf
+       - positioned from bookshelf's actual getBCR, NOT hardcoded left
+       - image sized ~180px tall (human scale relative to lab)
+       - proper silly multi-step dance: spins, big jumps, arm-waves
+
+     NO backdrop-filter anywhere (causes black screen on game canvas)
+═══════════════════════════════════════════════════════════════ -->
+
     <style>
         @keyframes ee-flutter {
 
@@ -43656,7 +43783,7 @@ Error generating stack: ` + a.message + `
                 });
                 _fosBadgeUpdate();
                 if (typeof notify === 'function') notify('🦴 ' + bfName + ' encontrou um fóssil! Clique no canto inferior esquerdo para datar.', 'info');
-                unlock('fossil_first');
+                unlock('fossil_first'); 
             }
 
             function _fosBadgeUpdate() {
@@ -44632,434 +44759,7 @@ Error generating stack: ` + a.message + `
             }
         }
     </script>
-    <!-- ═══════════════════════════════════════════════════════════════
-     AUTO-TRANSLATOR — paste this ONCE, right before </body>
-     Translates ALL text on the page automatically.
-     Caches everything → first click calls API, after that instant.
-     ═══════════════════════════════════════════════════════════════ -->
 
-    <style>
-        .title-lang {
-            position: absolute;
-            bottom: 20px;
-            right: 24px;
-            z-index: 20;
-            width: 42px;
-            height: 42px;
-            border-radius: 8px;
-            border: 1px solid rgba(184, 160, 96, 0.2);
-            background: rgba(255, 255, 255, 0.03);
-            color: rgba(200, 170, 100, 0.6);
-            cursor: pointer;
-            font-family: var(--font-body);
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .title-lang:hover {
-            border-color: rgba(184, 160, 96, 0.5);
-            color: var(--paper-cream);
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        /* Subtle pulse while translating */
-        .title-lang.translating {
-            animation: trPulse 0.8s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes trPulse {
-            from {
-                opacity: 0.4;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-
-    <script>
-        (function() {
-            'use strict';
-
-            // ═══════════════════════════════════════════════════════
-            //  CONFIGURATION — edit these if needed
-            // ═══════════════════════════════════════════════════════
-
-            var BASE_LANG = 'pt'; // your HTML is written in this language
-            var LANGUAGES = ['pt', 'en']; // cycle order — add 'es','fr','de' etc.
-            var CACHE_KEY = 'bgl_translations'; // localStorage key for translation cache
-            var LANG_KEY = 'bgl_lang'; // localStorage key for selected language
-
-            // Tags whose content should NEVER be translated
-            var SKIP_TAGS = {
-                SCRIPT: 1,
-                STYLE: 1,
-                NOSCRIPT: 1,
-                SVG: 1,
-                CANVAS: 1,
-                CODE: 1,
-                PRE: 1,
-                TEXTAREA: 1,
-                INPUT: 1,
-                SELECT: 1,
-                OPTION: 1
-            };
-
-            // ═══════════════════════════════════════════════════════
-            //  STATE
-            // ═══════════════════════════════════════════════════════
-
-            var currentLang = localStorage.getItem(LANG_KEY) || BASE_LANG;
-            var cache = {};
-            var originals = new WeakMap(); // textNode → original string
-            var attrOrigs = new WeakMap(); // element  → { attr: origValue }
-            var busy = false;
-
-            // Load cached translations
-            try {
-                cache = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}');
-            } catch (e) {
-                cache = {};
-            }
-
-            function saveCache() {
-                try {
-                    localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-                } catch (e) {
-                    /* storage full — cache still works in memory */
-                }
-            }
-
-
-            // ═══════════════════════════════════════════════════════
-            //  DOM COLLECTORS
-            // ═══════════════════════════════════════════════════════
-
-            function shouldSkip(el) {
-                if (!el) return true;
-                if (SKIP_TAGS[el.tagName]) return true;
-                try {
-                    if (el.closest('.no-translate')) return true;
-                } catch (e) {}
-                // Don't translate the language button itself
-                if (el.id === 'langBtn' || el.classList.contains('title-lang')) return true;
-                return false;
-            }
-
-            function isTranslatable(text) {
-                var t = (text || '').trim();
-                if (!t || t.length < 2) return false;
-                // Pure numbers / punctuation / symbols
-                if (/^[\d\s.,;:!?%$€£¥#@&*()\[\]{}<>\/\\|~`^+=_'"\-→←↑↓•·°×÷≈≠≤≥∞]+$/.test(t)) return false;
-                return true;
-            }
-
-            function collectTextNodes(root) {
-                var nodes = [];
-                var walker = document.createTreeWalker(
-                    root || document.body,
-                    NodeFilter.SHOW_TEXT, {
-                        acceptNode: function(node) {
-                            if (!isTranslatable(node.textContent)) return NodeFilter.FILTER_REJECT;
-                            if (shouldSkip(node.parentElement)) return NodeFilter.FILTER_REJECT;
-                            return NodeFilter.FILTER_ACCEPT;
-                        }
-                    }
-                );
-                while (walker.nextNode()) nodes.push(walker.currentNode);
-                return nodes;
-            }
-
-            var TRANS_ATTRS = ['placeholder', 'title', 'alt', 'aria-label'];
-
-            function collectAttrs(root) {
-                var items = [];
-                (root || document.body).querySelectorAll('*').forEach(function(el) {
-                    if (shouldSkip(el)) return;
-                    TRANS_ATTRS.forEach(function(attr) {
-                        var val = el.getAttribute(attr);
-                        if (val && isTranslatable(val)) {
-                            // Store original per-element
-                            if (!attrOrigs.has(el)) attrOrigs.set(el, {});
-                            var map = attrOrigs.get(el);
-                            if (map[attr] === undefined) map[attr] = val;
-                            items.push({
-                                el: el,
-                                attr: attr
-                            });
-                        }
-                    });
-                });
-                return items;
-            }
-
-
-            // ═══════════════════════════════════════════════════════
-            //  ORIGINALS STORAGE
-            // ═══════════════════════════════════════════════════════
-
-            function storeOriginal(node) {
-                if (!originals.has(node)) {
-                    originals.set(node, node.textContent);
-                }
-            }
-
-            function getOriginal(node) {
-                return originals.get(node) || node.textContent;
-            }
-
-            function getAttrOriginal(el, attr) {
-                var map = attrOrigs.get(el);
-                return (map && map[attr] !== undefined) ? map[attr] : el.getAttribute(attr);
-            }
-
-
-            // ═══════════════════════════════════════════════════════
-            //  FREE TRANSLATION API  (MyMemory — no key, no CORS)
-            //  5 000 chars/day anonymous  |  50 000 with email
-            //  Uncomment the &de= line below for higher limit
-            // ═══════════════════════════════════════════════════════
-
-            function apiTranslate(text, from, to) {
-                var trimmed = text.trim();
-                if (!trimmed) return Promise.resolve(text);
-
-                var key = from + '>' + to + '|' + trimmed;
-                if (cache[key] !== undefined) return Promise.resolve(cache[key]);
-
-                var url = 'https://api.mymemory.translated.net/get' +
-                    '?q=' + encodeURIComponent(trimmed) +
-                    '&langpair=' + from + '|' + to;
-                // + '&de=your@email.com';   // ← uncomment for 10× daily limit
-
-                return fetch(url)
-                    .then(function(r) {
-                        return r.json();
-                    })
-                    .then(function(data) {
-                        if (data.responseData && data.responseData.translatedText) {
-                            var result = data.responseData.translatedText;
-
-                            // Fix: API sometimes returns ALL-CAPS for short strings
-                            if (
-                                result === result.toUpperCase() &&
-                                trimmed !== trimmed.toUpperCase() &&
-                                result.length < 60
-                            ) {
-                                if (trimmed[0] === trimmed[0].toUpperCase()) {
-                                    result = result.charAt(0).toUpperCase() +
-                                        result.slice(1).toLowerCase();
-                                } else {
-                                    result = result.toLowerCase();
-                                }
-                            }
-
-                            cache[key] = result;
-                            saveCache();
-                            return result;
-                        }
-                        return text;
-                    })
-                    .catch(function() {
-                        return text; // API failed → return original
-                    });
-            }
-
-
-            // ═══════════════════════════════════════════════════════
-            //  MAIN: TRANSLATE THE PAGE
-            // ═══════════════════════════════════════════════════════
-
-            function translatePage(targetLang) {
-                if (busy) return Promise.resolve();
-                if (targetLang === currentLang) return Promise.resolve();
-                busy = true;
-                setBtnLoading(true);
-
-                var textNodes = collectTextNodes();
-                var attrItems = collectAttrs();
-
-                // ── RESTORE to base language ─────────────────────
-                if (targetLang === BASE_LANG) {
-                    textNodes.forEach(function(node) {
-                        var orig = originals.get(node);
-                        if (orig != null) node.textContent = orig;
-                    });
-                    attrItems.forEach(function(item) {
-                        var orig = getAttrOriginal(item.el, item.attr);
-                        if (orig) item.el.setAttribute(item.attr, orig);
-                    });
-                    currentLang = targetLang;
-                    localStorage.setItem(LANG_KEY, currentLang);
-                    busy = false;
-                    setBtnLoading(false);
-                    updateButton();
-                    return Promise.resolve();
-                }
-
-                // ── Store originals ──────────────────────────────
-                textNodes.forEach(storeOriginal);
-
-                // ── Gather unique strings ────────────────────────
-                var uniqueSet = {};
-                textNodes.forEach(function(n) {
-                    var o = getOriginal(n).trim();
-                    if (o) uniqueSet[o] = true;
-                });
-                attrItems.forEach(function(item) {
-                    var o = getAttrOriginal(item.el, item.attr);
-                    if (o) uniqueSet[o.trim()] = true;
-                });
-                var uniqueList = Object.keys(uniqueSet);
-
-                // ── Translate all unique strings (sequential) ────
-                var translations = {};
-                var chain = Promise.resolve();
-
-                uniqueList.forEach(function(str) {
-                    chain = chain.then(function() {
-                        return apiTranslate(str, BASE_LANG, targetLang);
-                    }).then(function(result) {
-                        translations[str] = result;
-                    });
-                });
-
-                return chain.then(function() {
-                    // ── Apply to text nodes ──────────────────────
-                    textNodes.forEach(function(node) {
-                        var orig = getOriginal(node).trim();
-                        var translated = translations[orig];
-                        if (translated && translated !== orig) {
-                            var m = node.textContent.match(/^(\s*)([\s\S]*?)(\s*)$/);
-                            var lead = m ? m[1] : '';
-                            var trail = m ? m[3] : '';
-                            node.textContent = lead + translated + trail;
-                        }
-                    });
-
-                    // ── Apply to attributes ──────────────────────
-                    attrItems.forEach(function(item) {
-                        var orig = (getAttrOriginal(item.el, item.attr) || '').trim();
-                        if (translations[orig]) {
-                            item.el.setAttribute(item.attr, translations[orig]);
-                        }
-                    });
-
-                    currentLang = targetLang;
-                    localStorage.setItem(LANG_KEY, currentLang);
-                    busy = false;
-                    setBtnLoading(false);
-                    updateButton();
-                });
-            }
-
-
-            // ═══════════════════════════════════════════════════════
-            //  BUTTON MANAGEMENT
-            // ═══════════════════════════════════════════════════════
-
-            function updateButton() {
-                var btn = document.getElementById('langBtn');
-                if (btn) btn.textContent = currentLang.toUpperCase();
-            }
-
-            function setBtnLoading(on) {
-                var btn = document.getElementById('langBtn');
-                if (!btn) return;
-                if (on) {
-                    btn.classList.add('translating');
-                    btn.textContent = '···';
-                } else {
-                    btn.classList.remove('translating');
-                }
-            }
-
-            function toggle() {
-                var idx = LANGUAGES.indexOf(currentLang);
-                var next = LANGUAGES[(idx + 1) % LANGUAGES.length];
-                translatePage(next);
-            }
-
-            // Expose globally so onclick="toggleLanguage()" works
-            window.toggleLanguage = toggle;
-
-            // Full API for advanced use
-            window.AutoTranslator = {
-                translatePage: translatePage,
-                toggle: toggle,
-                getLang: function() {
-                    return currentLang;
-                },
-                cacheSize: function() {
-                    return Object.keys(cache).length;
-                },
-                clearCache: function() {
-                    cache = {};
-                    localStorage.removeItem(CACHE_KEY);
-                    console.log('[Translator] Cache cleared');
-                }
-            };
-
-
-            // ═══════════════════════════════════════════════════════
-            //  INIT
-            // ═══════════════════════════════════════════════════════
-
-            function init() {
-                // If button exists, hook into it; if not, create one
-                var btn = document.getElementById('langBtn');
-                if (!btn) {
-                    btn = document.createElement('button');
-                    btn.id = 'langBtn';
-                    btn.className = 'title-lang';
-                    btn.style.position = 'fixed';
-                    document.body.appendChild(btn);
-                }
-                btn.textContent = currentLang.toUpperCase();
-                btn.onclick = toggle;
-
-                // If user previously picked a non-base language, translate now
-                if (currentLang !== BASE_LANG) {
-                    var savedLang = currentLang;
-                    currentLang = BASE_LANG; // reset so translatePage will run
-                    translatePage(savedLang);
-                }
-
-                // MutationObserver: auto-translate new dynamic content
-                var debounceTimer;
-                var observer = new MutationObserver(function() {
-                    if (busy || currentLang === BASE_LANG) return;
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(function() {
-                        var saved = currentLang;
-                        currentLang = BASE_LANG; // allow re-translation
-                        translatePage(saved);
-                    }, 500);
-                });
-
-                observer.observe(document.body, {
-                    childList: true,
-                    subtree: true
-                    // NOT characterData — so our own edits don't trigger loops
-                });
-            }
-
-            // Run when DOM is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                setTimeout(init, 50);
-            }
-
-        })();
-    </script>
 </body>
 
 </html>
