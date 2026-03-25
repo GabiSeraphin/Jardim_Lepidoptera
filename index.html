@@ -2666,9 +2666,8 @@
 
         .greenhouse-scene {
             position: relative;
-            width: 900px;
-            height: 600px;
-            border-radius: 8px;
+            width: 1125px;
+            height: 750px;
             overflow: hidden;
         }
 
@@ -2676,10 +2675,11 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 1125px;
+            height: 750px;
             pointer-events: none;
             opacity: 0.3;
+            object-fit: contain; 
         }
 
         .plant-pots {
@@ -25243,7 +25243,7 @@ Error generating stack: ` + a.message + `
                 <rect x="20" y="16" width="4" height="3" fill="#e0d8c8"></rect>
                 <rect x="21" y="17" width="2" height="1" fill="#7a9ab4"></rect>
             </svg></button>
-        <button class="player-btn" id="player-btn" onclick="toggleMusic()"><span class="btn-icon">▶</span></button>
+        <button class="player-btn" id="musicToggle" onclick="toggleMusic()"><span class="btn-icon">▶</span></button>
         <button class="audio-btn" id="sfxToggle" onclick="toggleSFX()">🔊</button>
     </div>
     <div class="main-view" id="view-lab">
@@ -25627,18 +25627,9 @@ Error generating stack: ` + a.message + `
 
             <div class="greenhouse-scene">
                 <button class="btn btn-sm gh-back" onclick="switchView('lab')">← Voltar ao laboratório</button>
-                <svg class="greenhouse-svg" viewBox="0 0 900 600">
-                    <defs>
-                        <linearGradient id="ghGlass" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.2)"></stop>
-                            <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)"></stop>
-                        </linearGradient>
-                    </defs>
-                    <path d="M30 560 L30 160 L450 40 L870 160 L870 560 Z" fill="url(#ghGlass)" stroke="#6d4c2a" stroke-width="4"></path>
-                    <line x1="450" y1="40" x2="450" y2="560" stroke="#6d4c2a" stroke-width="3" opacity="0.5"></line>
-                    <line x1="30" y1="350" x2="870" y2="350" stroke="#6d4c2a" stroke-width="2" opacity="0.3"></line>
-                    <circle cx="780" cy="70" r="35" fill=" #f4f1e8" opacity="0.7"></circle>
-                </svg>
+                <div class="greenhouse-svg" >
+                  <img src="https://i.postimg.cc/9QsXmKXq/546-Sem-Titulo-20260324153054.png" alt="GreenhouseUi">
+                </div>
                 <div class="plant-pots" id="plantPots"></div>
             </div>
         </div>
@@ -40922,7 +40913,7 @@ Error generating stack: ` + a.message + `
                 }
 
                 if (typeof notify === 'function')
-                    notify('✨  Skibidy JOoas  apareceu atrás da estante e está dançando!', 'special');
+                    notify('✨  Skibidy Jonas  apareceu atrás da estante e está dançando!', 'special');
 
                 clearTimeout(_sDT);
                 _sDT = setTimeout(function() {
@@ -40943,13 +40934,7 @@ Error generating stack: ` + a.message + `
                 setTimeout(_initShelf, 700);
 
 
-            /* ═══════════════════════════════════════════════════════════════
-               2. MICROSCOPE — EXACT port of oy() from React lab
-               Formula: width=${100*D}%, left=${-x*(D-1)*.5}%
-               transition:all 300ms — this is what made original feel smooth!
-               Single zoom-IN button only (no zoom out), like original.
-               Doodle at SVG (88,88) — visible when D>=4, x>=85, y>=85
-            ═══════════════════════════════════════════════════════════════ */
+          
             var mD = 1,
                 mPos = {
                     x: 50,
@@ -44009,7 +43994,7 @@ Error generating stack: ` + a.message + `
                 }
                 _fosBadgeUpdate();
             };
-
+             
 
             /* ══════════════════════════════════════════════════════════════════
                8. GAME HOOKS
@@ -44758,8 +44743,424 @@ Error generating stack: ` + a.message + `
                 setTimeout(() => overlay.remove(), 500);
             }
         }
+        
     </script>
+<!-- ═══════════════════════════════════════════════════════════════
+     AUTOMATIC MULTI-API TRANSLATOR — Unlimited, Rotates APIs
+     ═══════════════════════════════════════════════════════════════ -->
 
+<style>
+    .title-lang {
+        position: fixed;
+        bottom: 20px;
+        right: 24px;
+        z-index: 999999;
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        border: 1px solid rgba(184, 160, 96, 0.2);
+        background: rgba(255, 255, 255, 0.03);
+        color: rgba(200, 170, 100, 0.6);
+        cursor: pointer;
+        font-family: var(--font-body, sans-serif);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .title-lang:hover {
+        border-color: rgba(184, 160, 96, 0.5);
+        color: var(--paper-cream, #f5f1e8);
+        background: rgba(255, 255, 255, 0.06);
+    }
+    .title-lang.translating {
+        animation: trPulse 0.8s ease-in-out infinite alternate;
+        pointer-events: none;
+    }
+    @keyframes trPulse {
+        from { opacity: 0.4; }
+        to   { opacity: 1; }
+    }
+</style>
+
+<script>
+(function () {
+    'use strict';
+
+    // ═══════════════════════════════════════════════════════
+    //  CONFIGURATION
+    // ═══════════════════════════════════════════════════════
+    const BASE_LANG = 'pt';
+    const LANGUAGES = ['pt', 'en'];
+    const CACHE_KEY = 'bgl_translations';
+    const LANG_KEY = 'bgl_lang';
+
+    // PROTECTED ELEMENTS — Never translate these
+    const PROTECTED_SELECTORS = [
+        '.title-name',           // ← YOUR GAME TITLE
+        '.vial', '.vial-rack',
+        '#labBfSvg',
+        '.allele', '.genotype-display',
+        '.rv', '.stat-fill',
+        'script', 'style', 'svg',
+        '#langBtn', '.title-lang',
+        '.credits-scroll-inner',
+        'code', 'pre'
+    ];
+
+    const PROTECTED_TAGS = ['SCRIPT', 'STYLE', 'SVG', 'CODE', 'PRE', 'TEXTAREA', 'INPUT', 'SELECT'];
+
+    // ═══════════════════════════════════════════════════════
+    //  STATE
+    // ═══════════════════════════════════════════════════════
+    let currentLang = localStorage.getItem(LANG_KEY) || BASE_LANG;
+    let cache = {};
+    let originals = new WeakMap();
+    let attrOriginals = new WeakMap();
+    let busy = false;
+    let currentAPI = 0; // API rotation index
+
+    // Load cache
+    try { cache = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}'); }
+    catch (e) { cache = {}; }
+
+    function saveCache() {
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify(cache)); }
+        catch (e) { /* storage full */ }
+    }
+
+    // ═══════════════════════════════════════════════════════
+    //  MULTI-API TRANSLATION (3 FREE APIs)
+    // ═══════════════════════════════════════════════════════
+    const TRANSLATION_APIS = [
+        // API 1: LibreTranslate (Public instance)
+        {
+            name: 'LibreTranslate',
+            translate: async (text, from, to) => {
+                const res = await fetch('https://libretranslate.de/translate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        q: text,
+                        source: from,
+                        target: to,
+                        format: 'text'
+                    })
+                });
+                const data = await res.json();
+                return data.translatedText;
+            }
+        },
+        
+        // API 2: Lingva Translate
+        {
+            name: 'Lingva',
+            translate: async (text, from, to) => {
+                const res = await fetch(`https://lingva.ml/api/v1/${from}/${to}/${encodeURIComponent(text)}`);
+                const data = await res.json();
+                return data.translation;
+            }
+        },
+        
+        // API 3: MyMemory (fallback)
+        {
+            name: 'MyMemory',
+            translate: async (text, from, to) => {
+                const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${from}|${to}`);
+                const data = await res.json();
+                if (data.responseData && data.responseData.translatedText) {
+                    return data.responseData.translatedText;
+                }
+                throw new Error('MyMemory failed');
+            }
+        }
+    ];
+
+    async function translateText(text, from, to) {
+        const trimmed = text.trim();
+        if (!trimmed || trimmed.length < 2) return text;
+
+        // Check cache
+        const key = `${from}>${to}|${trimmed}`;
+        if (cache[key]) return cache[key];
+
+        // Skip numbers/symbols
+        if (/^[\d\s.,;:!?%$€£¥#@&*()\[\]{}<>\/\\|~`^+=_'"\-→←↑↓•·°×÷≈≠≤≥∞♂♀🦋🍯🧬💎]+$/.test(trimmed)) {
+            return text;
+        }
+
+        // Try APIs in rotation
+        let result = null;
+        let attempts = 0;
+        
+        while (!result && attempts < TRANSLATION_APIS.length) {
+            try {
+                const api = TRANSLATION_APIS[currentAPI];
+                console.log(`🌐 Trying ${api.name}...`);
+                result = await api.translate(trimmed, from, to);
+                
+                // Fix ALL-CAPS responses
+                if (result === result.toUpperCase() && trimmed !== trimmed.toUpperCase() && result.length < 60) {
+                    if (trimmed[0] === trimmed[0].toUpperCase()) {
+                        result = result.charAt(0).toUpperCase() + result.slice(1).toLowerCase();
+                    } else {
+                        result = result.toLowerCase();
+                    }
+                }
+                
+                // Cache successful translation
+                cache[key] = result;
+                saveCache();
+                console.log(`✅ ${api.name}: "${trimmed}" → "${result}"`);
+                
+            } catch (err) {
+                console.warn(`⚠️ ${TRANSLATION_APIS[currentAPI].name} failed:`, err.message);
+                currentAPI = (currentAPI + 1) % TRANSLATION_APIS.length; // Rotate
+                attempts++;
+            }
+        }
+
+        return result || text; // Fallback to original
+    }
+
+    // ═══════════════════════════════════════════════════════
+    //  DOM HELPERS
+    // ═══════════════════════════════════════════════════════
+    function isProtected(el) {
+        if (!el || !el.nodeType) return true;
+        if (el.nodeType === 3) el = el.parentElement;
+        if (!el) return true;
+
+        if (PROTECTED_TAGS.includes(el.tagName)) return true;
+
+        for (const sel of PROTECTED_SELECTORS) {
+            try {
+                if (el.matches && el.matches(sel)) return true;
+                if (el.closest && el.closest(sel)) return true;
+            } catch (e) {}
+        }
+
+        return false;
+    }
+
+    function isTranslatable(text) {
+        const t = (text || '').trim();
+        if (!t || t.length < 2) return false;
+        if (/^[\d\s.,;:!?%$€£¥#@&*()\[\]{}<>\/\\|~`^+=_'"\-→←↑↓•·°×÷≈≠≤≥∞♂♀]+$/.test(t)) return false;
+        return true;
+    }
+
+    function collectTextNodes(root) {
+        const nodes = [];
+        const walker = document.createTreeWalker(
+            root || document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: function (node) {
+                    if (!isTranslatable(node.textContent)) return NodeFilter.FILTER_REJECT;
+                    if (isProtected(node)) return NodeFilter.FILTER_REJECT;
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+        return nodes;
+    }
+
+    const TRANS_ATTRS = ['placeholder', 'title', 'alt', 'aria-label'];
+
+    function collectAttrs(root) {
+        const items = [];
+        (root || document.body).querySelectorAll('*').forEach(el => {
+            if (isProtected(el)) return;
+            TRANS_ATTRS.forEach(attr => {
+                const val = el.getAttribute(attr);
+                if (val && isTranslatable(val)) {
+                    if (!attrOriginals.has(el)) attrOriginals.set(el, {});
+                    const map = attrOriginals.get(el);
+                    if (map[attr] === undefined) map[attr] = val;
+                    items.push({ el, attr });
+                }
+            });
+        });
+        return items;
+    }
+
+    // ═══════════════════════════════════════════════════════
+    //  MAIN TRANSLATION
+    // ═══════════════════════════════════════════════════════
+    async function translatePage(targetLang) {
+        if (busy) return;
+        if (targetLang === currentLang) return;
+        
+        busy = true;
+        setBtnLoading(true);
+
+        const textNodes = collectTextNodes();
+        const attrItems = collectAttrs();
+
+        // Store originals
+        textNodes.forEach(node => {
+            if (!originals.has(node)) {
+                originals.set(node, node.textContent);
+            }
+        });
+
+        // ── RESTORE to base language ──
+        if (targetLang === BASE_LANG) {
+            textNodes.forEach(node => {
+                const orig = originals.get(node);
+                if (orig != null) node.textContent = orig;
+            });
+            attrItems.forEach(({ el, attr }) => {
+                const map = attrOriginals.get(el);
+                if (map && map[attr]) el.setAttribute(attr, map[attr]);
+            });
+
+            currentLang = targetLang;
+            localStorage.setItem(LANG_KEY, currentLang);
+            busy = false;
+            setBtnLoading(false);
+            updateButton();
+            return;
+        }
+
+        // ── Gather unique strings ──
+        const uniqueSet = new Set();
+        textNodes.forEach(n => {
+            const o = originals.get(n).trim();
+            if (o) uniqueSet.add(o);
+        });
+        attrItems.forEach(({ el, attr }) => {
+            const map = attrOriginals.get(el);
+            if (map && map[attr]) uniqueSet.add(map[attr].trim());
+        });
+
+        const uniqueList = Array.from(uniqueSet);
+        console.log(`🔄 Translating ${uniqueList.length} unique phrases...`);
+
+        // ── Translate all (in batches to avoid rate limits) ──
+        const translations = {};
+        
+        for (let i = 0; i < uniqueList.length; i++) {
+            const str = uniqueList[i];
+            translations[str] = await translateText(str, BASE_LANG, targetLang);
+            
+            // Small delay every 10 requests to be nice to APIs
+            if (i > 0 && i % 10 === 0) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+        }
+
+        // ── Apply translations ──
+        textNodes.forEach(node => {
+            const orig = originals.get(node).trim();
+            const translated = translations[orig];
+            if (translated && translated !== orig) {
+                const m = node.textContent.match(/^(\s*)([\s\S]*?)(\s*)$/);
+                const lead = m ? m[1] : '';
+                const trail = m ? m[3] : '';
+                node.textContent = lead + translated + trail;
+            }
+        });
+
+        attrItems.forEach(({ el, attr }) => {
+            const map = attrOriginals.get(el);
+            const orig = (map && map[attr]) ? map[attr].trim() : '';
+            if (translations[orig]) {
+                el.setAttribute(attr, translations[orig]);
+            }
+        });
+
+        currentLang = targetLang;
+        localStorage.setItem(LANG_KEY, currentLang);
+        busy = false;
+        setBtnLoading(false);
+        updateButton();
+        console.log(`✅ Translation complete!`);
+    }
+
+    // ═══════════════════════════════════════════════════════
+    //  BUTTON MANAGEMENT
+    // ═══════════════════════════════════════════════════════
+    function updateButton() {
+        const btn = document.getElementById('langBtn');
+        if (btn) btn.textContent = currentLang.toUpperCase();
+    }
+
+    function setBtnLoading(on) {
+        const btn = document.getElementById('langBtn');
+        if (!btn) return;
+        if (on) {
+            btn.classList.add('translating');
+            btn.textContent = '···';
+        } else {
+            btn.classList.remove('translating');
+        }
+    }
+
+    function toggle() {
+        const idx = LANGUAGES.indexOf(currentLang);
+        const next = LANGUAGES[(idx + 1) % LANGUAGES.length];
+        translatePage(next);
+    }
+
+    window.toggleLanguage = toggle;
+
+    window.AutoTranslator = {
+        translatePage,
+        toggle,
+        getLang: () => currentLang,
+        cacheSize: () => Object.keys(cache).length,
+        clearCache: () => {
+            cache = {};
+            localStorage.removeItem(CACHE_KEY);
+            console.log('🗑️ Cache cleared');
+        },
+        setAPI: (index) => {
+            if (index >= 0 && index < TRANSLATION_APIS.length) {
+                currentAPI = index;
+                console.log(`Switched to ${TRANSLATION_APIS[index].name}`);
+            }
+        }
+    };
+
+    // ═══════════════════════════════════════════════════════
+    //  INIT
+    // ═══════════════════════════════════════════════════════
+    function init() {
+        let btn = document.getElementById('langBtn');
+        if (!btn) {
+            btn = document.createElement('button');
+            btn.id = 'langBtn';
+            btn.className = 'title-lang';
+            document.body.appendChild(btn);
+        }
+        btn.textContent = currentLang.toUpperCase();
+        btn.onclick = toggle;
+
+        // Auto-translate if user previously selected EN
+        if (currentLang !== BASE_LANG) {
+            const savedLang = currentLang;
+            currentLang = BASE_LANG;
+            translatePage(savedLang);
+        }
+
+        console.log(`Multi-API Translator ready. Current: ${currentLang.toUpperCase()}`);
+        console.log(` Cache size: ${Object.keys(cache).length} translations`);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        setTimeout(init, 100);
+    }
+
+})();
+</script>
 </body>
 
 </html>
