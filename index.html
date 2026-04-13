@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardim Lepidoptra</title>
+    <title>Butterfly Genetics Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&amp;display=swap" rel="stylesheet">
@@ -346,9 +346,9 @@
 
 
         .left-dir {
-            width: 0;
-            height: 0;
-            display: none;
+            width: 65px;
+            height: 659px;
+            display: flex;
             flex-direction: column;
             justify-content: center;
             flex-shrink: 0;
@@ -392,8 +392,8 @@
 
         /* LAB SCENE */
         .lab {
-         position: relative;
-            width: 1245px;
+            position: relative;
+            width: 1180px;
             height: 695px;
             background: transparent;
             overflow: hidden;
@@ -2021,8 +2021,8 @@
 
         .inbred-warning {
             color: #e06060;
-            height: 20px;
-            width: 20px;
+            font-size: 0.6rem;
+            font-style: italic;
         }
 
         /* NOTEBOOK */
@@ -2327,7 +2327,7 @@
             font-family: 'Pixel-Script';
             font-weight: 400;
             text-align: center;
-            font-size: clamp(0.4rem, 8cqw, 0.7rem); 
+            font-size: 0.6rem;
             color: var(--ink-brown);
         }
 
@@ -4664,7 +4664,7 @@
             background: linear-gradient(to bottom, #F7F5F0, #DEDCD8);
             box-shadow: rgba(0, 0, 0, 0.3) 0 1px 1px;
             padding: 0 20px;
-             container-type: inline-size;
+            /* Espaço interno para o texto não tocar as bordas */
         }
 
 
@@ -5970,6 +5970,202 @@
         }
     </style>
     <style media="all" id="fa-v4-shims">
+    
+        /* ── NEW TAMAGOTCHI ELEMENTS ── */
+        .tama-mood-display {
+            text-align:center; padding:6px; background:rgba(0,0,0,0.25);
+            border:1px solid rgba(255,180,80,0.1); border-radius:7px; margin-bottom:6px;
+        }
+        .tama-mood-emoji { font-size:1.6rem; }
+        .tama-mood-label {
+            font-size:0.6rem; color:rgba(200,170,100,0.6);
+            font-family:var(--font-handwritten);
+        }
+
+        .tama-streak {
+            display:flex; align-items:center; gap:5px; font-size:0.65rem;
+            color:rgba(200,170,100,0.65); padding:4px 8px;
+            background:rgba(255,180,80,0.05); border-radius:5px;
+            border:1px solid rgba(255,180,80,0.1); margin-bottom:5px;
+        }
+        .tama-streak b { color:rgba(255,220,100,0.9); }
+
+        .tama-bond-bar-wrap {
+            background:rgba(0,0,0,0.3); border-radius:4px; height:6px;
+            overflow:hidden; border:1px solid rgba(255,180,80,0.1); margin:3px 0;
+        }
+        .tama-bond-bar {
+            height:100%; border-radius:4px; transition:width .5s;
+            background:linear-gradient(90deg,#e91e8c,#ff9800);
+        }
+        .tama-bond-label {
+            display:flex; justify-content:space-between;
+            font-size:0.55rem; color:rgba(200,170,100,0.55);
+        }
+
+        .tama-achievements {
+            display:flex; flex-wrap:wrap; gap:3px; margin:5px 0;
+        }
+        .tama-achievement-badge {
+            padding:2px 5px; border-radius:4px; font-size:0.55rem;
+            background:rgba(255,180,80,0.1); border:1px solid rgba(255,180,80,0.25);
+            color:rgba(255,220,150,0.85); cursor:default;
+        }
+        .tama-achievement-badge.locked {
+            opacity:0.35; filter:grayscale(1);
+        }
+
+        .tama-trait-pill {
+            display:inline-block; padding:2px 6px; border-radius:10px;
+            font-size:0.55rem; margin:1px;
+            background:rgba(120,180,120,0.15); border:1px solid rgba(120,180,120,0.35);
+            color:rgba(180,240,180,0.85);
+        }
+        .tama-trait-pill.negative {
+            background:rgba(220,80,80,0.15); border-color:rgba(220,80,80,0.35);
+            color:rgba(255,160,140,0.85);
+        }
+
+        /* ── ACTIVE RUN SMALL DISPLAY in old section ── */
+        .rl-active-run-card {
+            padding:8px 10px; border-radius:7px; margin-bottom:6px;
+            background:rgba(255,180,80,0.07); border:1px solid rgba(255,180,80,0.2);
+            display:flex; justify-content:space-between; align-items:center;
+            font-size:0.72rem; color:rgba(220,190,140,0.9);
+        }
+        .rl-active-run-card button {
+            padding:3px 10px; border-radius:5px; cursor:pointer; font-size:0.65rem;
+            background:rgba(255,180,80,0.15); border:1px solid rgba(255,180,80,0.35);
+            color:rgba(255,220,150,0.9); font-family:inherit;
+        }
+
+        /* ── WATERING POT ADDITIONS ── */
+        .pot-water-bar {
+            height:3px; border-radius:2px; background:rgba(0,0,0,0.3);
+            margin:1px 0; overflow:hidden;
+        }
+        .pot-water-fill {
+            height:100%; border-radius:2px; transition:width .4s;
+            background:linear-gradient(90deg,#29b6f6,#4fc3f7);
+        }
+        .pot-water-bar.water-dry .pot-water-fill { background:linear-gradient(90deg,#ef5350,#e57373); }
+        .pot-water-bar.water-low .pot-water-fill { background:linear-gradient(90deg,#ffa726,#ffb74d); }
+        .pot-water-bar.water-ok  .pot-water-fill { background:linear-gradient(90deg,#29b6f6,#4fc3f7); }
+        .pot-actions {
+            display:flex; gap:3px; justify-content:center; margin-top:2px;
+        }
+        .pot-water-btn, .pot-harvest-btn {
+            padding:1px 5px; border-radius:4px; cursor:pointer; font-size:0.65rem;
+            border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.08);
+            transition:all .15s;
+        }
+        .pot-water-btn:hover  { background:rgba(100,180,255,0.25); }
+        .pot-harvest-btn:hover { background:rgba(255,180,80,0.25); }
+        .pot-label {
+            font-size:0.45rem; color:rgba(200,170,100,0.5); text-align:center;
+            overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:56px;
+        }
+        .pot-wilt-badge {
+            position:absolute; top:2px; left:2px; font-size:0.8rem;
+            animation:wiggle 1s infinite;
+        }
+        @keyframes wiggle {
+            0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)}
+        }
+        .pot-slot.wilting { opacity:0.75; }
+        .pot-slot.wilting .pot-plant-area { filter:saturate(0.4); }
+        .seed-effect {
+            font-size:0.52rem; color:rgba(150,220,150,0.75); margin-top:1px;
+        }
+        .seed-cant-buy { opacity:0.45; }
+        .seed-item { cursor:pointer; }
+
+        /* ── SUITCASE / VIAL OVERFLOW ── */
+        .vial-suitcase-btn {
+            width:28px; height:52px; cursor:pointer;
+            display:flex; flex-direction:column; align-items:center;
+            justify-content:center; gap:1px;
+            background:rgba(255,180,80,0.1); border:1px solid rgba(255,180,80,0.3);
+            border-radius:5px; transition:all .2s; flex-shrink:0;
+        }
+        .vial-suitcase-btn:hover {
+            background:rgba(255,180,80,0.22); transform:translateY(-3px);
+            box-shadow:0 0 12px rgba(255,180,80,0.3);
+        }
+        .suitcase-icon { font-size:1.1rem; }
+        .suitcase-count { font-size:0.5rem; color:rgba(255,220,150,0.9); }
+
+        .suitcase-modal {
+            width:min(680px, 95vw); max-height:80vh;
+            background:linear-gradient(180deg, #1a1510, #120e0a);
+            border:1px solid rgba(180,140,80,0.3);
+            border-radius:12px; padding:16px;
+            display:flex; flex-direction:column; gap:0;
+        }
+        .suitcase-header {
+            border-bottom:1px solid rgba(180,140,80,0.15);
+            padding-bottom:10px; margin-bottom:10px;
+        }
+        .suitcase-title {
+            font-family:var(--font-title); font-size:1.1rem;
+            color:rgba(220,190,140,0.95);
+        }
+        .suitcase-subtitle {
+            font-size:0.65rem; color:rgba(200,170,100,0.5); margin-top:2px;
+        }
+        .suitcase-body {
+            overflow-y:auto; display:flex; flex-direction:column; gap:14px;
+        }
+        .suitcase-shelf {
+            display:flex; flex-direction:column; gap:4px; position:relative;
+        }
+        .suitcase-shelf-label {
+            font-size:0.55rem; color:rgba(200,170,100,0.4);
+            text-transform:uppercase; letter-spacing:1px;
+        }
+        .suitcase-shelf-row {
+            display:flex; flex-wrap:wrap; gap:5px;
+            padding:6px 4px 10px 4px;
+        }
+        .suitcase-shelf-plank {
+            height:6px; width:100%;
+            background:linear-gradient(180deg,#6a4a20,#4a3010);
+            border-radius:3px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.5);
+        }
+        .suitcase-vial {
+            width:40px; cursor:pointer; display:flex; flex-direction:column;
+            align-items:center; gap:2px; transition:all .2s; position:relative;
+        }
+        .suitcase-vial:hover { transform:translateY(-4px); }
+        .suitcase-vial.selected { transform:translateY(-5px); }
+        .suit-vial-glass {
+            width:32px; height:48px; border-radius:4px 4px 8px 8px;
+            background:rgba(150,200,170,0.08); border:1px solid rgba(180,210,190,0.18);
+            position:relative; overflow:hidden;
+        }
+        .suitcase-vial.selected .suit-vial-glass {
+            border-color:rgba(255,200,100,0.6);
+            box-shadow:0 0 10px rgba(255,180,80,0.4);
+        }
+        .suit-vial-liquid {
+            position:absolute; bottom:2px; left:2px; right:2px;
+            height:30px; border-radius:0 0 6px 6px; opacity:0.2;
+        }
+        .suit-vial-bf {
+            position:absolute; bottom:4px; left:50%;
+            transform:translateX(-50%); width:18px; height:18px;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .suit-vial-bf svg { width:18px; height:18px; }
+        .suit-vial-name {
+            font-size:0.45rem; color:rgba(200,170,100,0.6);
+            text-align:center; max-width:40px;
+            overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+        }
+        .suit-adv-badge {
+            position:absolute; top:-3px; right:-3px; font-size:0.6rem;
+        }
         /*!
  * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -27033,10 +27229,10 @@ Error generating stack: ` + a.message + `
             </button>
 
             <!-- 4. GÉNESIS (A tua subpágina) -->
-            <a href="Chrysalis/" style="text-decoration: none; color: inherit; display: block;">
+            <a href="https://gabiseraphin.github.io/Chrysalis/" style="text-decoration: none; color: inherit; display: block;">
                 <button class="title-btn">
                     <img src="https://i.postimg.cc/xJcH70Jy/blue-morpho-butterfly-icon.png" alt="blue-morpho-butterfly-icon" width="180" height="96">
-                    <div class="title-btn-label"> Génesis </div>
+                    <div class="title-btn-label"> Génesis Chrysalis</div>
                     <div class="title-btn-desc"> A história por detrás do jogo com flashbacks da personagem do jogador e a sua motivação.</div>
                 </button>
             </a>
@@ -38259,7 +38455,7 @@ Error generating stack: ` + a.message + `
         <h2 class="butterfly-name"style="font-size: 22px;">${bf.name}</h2> <span class="gender-sym">${bf.gender==='macho'?'♂':'♀'}</span>
             </div>
             <div class="ribbon-stitches-bottom"></div>
-        </div>${bf.isInbred?'<span class="inbred-warning"> <img src="https://i.postimg.cc/3Nk9xHwr/inbred-icon.png" alt="INBREED" style="height:20px; width: 20px;></span>':''}`;
+        </div> <br> ${bf.isInbred?'<span class="inbred-warning"> (inbred)</span>':''}`;
                 document.getElementById('healthBar').style.width = `${bf.health}%`;
                 document.getElementById('hungerBar').style.width = `${bf.hunger||0}%`;
                 document.getElementById('happinessBar').style.width = `${bf.happiness}%`;
@@ -54412,8 +54608,8 @@ Error generating stack: ` + a.message + `
                 spd: 5
             },
             volcano: {
-                name: 'Esquecidossauro 404Rex',
-                icon: 'https://i.postimg.cc/MKrY3kNB/576%20Sem%20T%C3%ADtulo%2020260412130719.png',
+                name: 'Spinosaurus Mirabilis',
+                icon: '🦕🌋',
                 hp: 600,
                 atk: 30,
                 def: 20,
@@ -54421,14 +54617,7 @@ Error generating stack: ` + a.message + `
                 spd: 12
             }
         };
-function renderIcon(iconPath) {
-    // If the icon path ends in a common image extension or starts with http
-    if (iconPath.match(/\.(jpeg|jpg|gif|png|webp|svg)$/) != null || iconPath.startsWith('http')) {
-        return `<img src="${iconPath}" style="width:14px; height:14px; vertical-align:middle;" alt="icon">`;
-    }
-    // Otherwise, treat it as an emoji/text
-    return iconPath;
-}
+
         function rl_createBiomeEnemies(biome, floor) {
             const rlRegions = RL_BIOME_ENEMY_MAP[biome] || ['jardim_encantado'];
             const rlRegion = rlRegions[Math.floor(Math.random() * rlRegions.length)];
@@ -61658,8 +61847,178 @@ function renderIcon(iconPath) {
             tabSfx.currentTime = 0;
             tabSfx.play().catch(() => {});
         }
-    </script>
+        
+        // ════════════════════════════════════════════════════════════════
+        // ENHANCED TAMAGOTCHI ELEMENTS
+        // ════════════════════════════════════════════════════════════════
 
+        // Bond system — persisted on butterfly as bf.bond (0–100)
+        // Mood system — calculated from stats
+        // Daily care streak — GS.careStreak
+
+        function getBfMood(bf) {
+            if (!bf) return { emoji:'😶', label:'Sem borboleta' };
+            const avg = ((bf.happiness||50) + (bf.health||100) + Math.max(0,100-(bf.hunger||30)) + (bf.energy||80)) / 4;
+            if (avg >= 85) return { emoji:'🤩', label:'Extasiada' };
+            if (avg >= 70) return { emoji:'😊', label:'Feliz' };
+            if (avg >= 55) return { emoji:'🙂', label:'Satisfeita' };
+            if (avg >= 40) return { emoji:'😐', label:'Neutro' };
+            if (avg >= 25) return { emoji:'😟', label:'Triste' };
+            return { emoji:'😢', label:'Muito Triste' };
+        }
+
+        function getBond(bf) { return bf ? (bf.bond || 0) : 0; }
+        function getBondLabel(bond) {
+            if (bond >= 90) return '💕 Almas Gêmeas';
+            if (bond >= 70) return '💛 Amizade Profunda';
+            if (bond >= 50) return '💚 Boa Amizade';
+            if (bond >= 30) return '💙 Conhecidos';
+            if (bond >= 10) return '🤍 Estranha';
+            return '🤍 Desconhecida';
+        }
+
+        function gainBond(bf, amount) {
+            if (!bf) return;
+            bf.bond = Math.min(100, (bf.bond || 0) + amount);
+        }
+
+        function getBfAchievements(bf) {
+            if (!bf) return [];
+            const all = [
+                { id:'first_adv',  icon:'🗺️', label:'Primeira Aventura', check: b => (b.adventureCount||0) >= 1 },
+                { id:'veteran',    icon:'⚔️', label:'Veterana',          check: b => (b.adventureCount||0) >= 5 },
+                { id:'bonded',     icon:'💕', label:'Vinculada',          check: b => (b.bond||0) >= 50 },
+                { id:'healthy',    icon:'💪', label:'Saudável',           check: b => b.health >= 95 },
+                { id:'happy',      icon:'😊', label:'Muito Feliz',        check: b => b.happiness >= 90 },
+                { id:'trained',    icon:'🏋️', label:'Treinada',           check: b => (b.agility||0) >= 20 },
+                { id:'resilient',  icon:'🛡️', label:'Resiliente',         check: b => (b.stamina||0) >= 20 },
+                { id:'elder',      icon:'🎂', label:'Anciã',              check: b => b.age >= 50 },
+            ];
+            return all;
+        }
+
+        // Patch tamaAction to also add bond
+        const _origTamaAction = window.tamaAction;
+        window.tamaActionOld = _origTamaAction;
+
+        // We wrap after page load
+        function initTamaPatches() {
+            const origFn = window.tamaAction;
+            if (!origFn) return;
+            window.tamaAction = function(cat, act) {
+                origFn(cat, act);
+                const bf = GS.butterflies[GS.selectedBf];
+                if (bf) {
+                    gainBond(bf, 2);
+                    // Streak
+                    const today = Math.floor(Date.now() / 86400000);
+                    if (!GS.lastCareDay) GS.lastCareDay = today;
+                    if (today === GS.lastCareDay) {
+                        GS.careStreak = GS.careStreak || 1;
+                    } else if (today === GS.lastCareDay + 1) {
+                        GS.careStreak = (GS.careStreak || 0) + 1;
+                        GS.lastCareDay = today;
+                    } else {
+                        GS.careStreak = 1;
+                        GS.lastCareDay = today;
+                    }
+                    // Update mood display
+                    updateMoodDisplay(bf);
+                }
+            };
+        }
+
+        function updateMoodDisplay(bf) {
+            const moodEl = document.getElementById('tama-mood-emoji');
+            const moodLbl = document.getElementById('tama-mood-label');
+            const bondBar = document.getElementById('tama-bond-bar');
+            const bondLabel = document.getElementById('tama-bond-label-val');
+            const streakEl = document.getElementById('tama-streak-val');
+            const achEl = document.getElementById('tama-achievement-area');
+            if (!bf) return;
+            const mood = getBfMood(bf);
+            const bond = getBond(bf);
+            if (moodEl) moodEl.textContent = mood.emoji;
+            if (moodLbl) moodLbl.textContent = mood.label;
+            if (bondBar) bondBar.style.width = bond + '%';
+            if (bondLabel) bondLabel.textContent = getBondLabel(bond);
+            if (streakEl) streakEl.textContent = GS.careStreak || 0;
+            if (achEl) {
+                const achs = getBfAchievements(bf);
+                achEl.innerHTML = achs.map(a => {
+                    const unlocked = a.check(bf);
+                    return `<span class="tama-achievement-badge${unlocked?'':' locked'}" title="${a.label}">${a.icon}</span>`;
+                }).join('');
+            }
+        }
+
+        // Call after bf is selected
+        const _origUpdateLabDisplay = window.updateLabDisplay;
+        window.updateLabDisplayOld = _origUpdateLabDisplay;
+        function hookUpdateLabDisplay() {
+            const orig = window.updateLabDisplay;
+            if (!orig) return;
+            window.updateLabDisplay = function() {
+                orig();
+                const bf = GS.butterflies[GS.selectedBf];
+                updateMoodDisplay(bf);
+            };
+        }
+
+        // Patch switchNbTab to init adventure panels
+        const _origSwitchNbTab = window.switchNbTab;
+        window.switchNbTabOld = _origSwitchNbTab;
+        function hookSwitchNbTab() {
+            const orig = window.switchNbTab;
+            if (!orig) return;
+            window.switchNbTab = function(tab, el) {
+                orig(tab, el);
+                if (tab === 'adventures') {
+                    // Switch to default classic mode
+                    switchAdvMode('classic', document.querySelector('.adv-mode-tab'));
+                }
+            };
+        }
+
+        // Inject mood display HTML into observe tab
+        function injectMoodDisplay() {
+            const observePanel = document.getElementById('tama-observe');
+            if (!observePanel) return;
+            if (document.getElementById('tama-mood-display-injected')) return;
+            const moodDiv = document.createElement('div');
+            moodDiv.id = 'tama-mood-display-injected';
+            moodDiv.className = 'tama-mood-display';
+            moodDiv.innerHTML = `
+<div class="tama-mood-emoji" id="tama-mood-emoji">😶</div>
+<div class="tama-mood-label" id="tama-mood-label">Selecione uma borboleta</div>`;
+            observePanel.insertBefore(moodDiv, observePanel.firstChild);
+
+            // Bond bar in observe
+            const bondDiv = document.createElement('div');
+            bondDiv.innerHTML = `
+<div class="tama-streak"><span>🔥 Cuidados consecutivos:</span> <b id="tama-streak-val">0</b> dia(s)</div>
+<div class="tama-bond-label"><span>💕 Vínculo</span><span id="tama-bond-label-val">Desconhecida</span></div>
+<div class="tama-bond-bar-wrap"><div class="tama-bond-bar" id="tama-bond-bar" style="width:0%"></div></div>
+<div class="tama-achievements" id="tama-achievement-area" style="margin-top:5px;"></div>`;
+            observePanel.insertBefore(bondDiv, observePanel.children[1]);
+        }
+
+        // Init all patches on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                initTamaPatches();
+                hookUpdateLabDisplay();
+                hookSwitchNbTab();
+                injectMoodDisplay();
+                // Init adventure grid2 with correct panel
+                renderAdventureGrid2();
+                renderActiveAdventures2();
+            }, 500);
+        });
+
+
+    </script>
+<script></script>
 
 </body>
 
